@@ -1,0 +1,224 @@
+/* pages/mine/logistics/index.wxss */
+
+page {
+  letter-spacing: 1px;
+}
+
+.m-logistics {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-logistics-header {
+  display: flex;
+  box-sizing: border-box;
+  height: 258rpx;
+  background: url(http://119.23.60.6:8097/api/image/img_signin.png) no-repeat center center;
+  background-size: contain;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 36rpx;
+}
+
+.m-logistics-header-content {
+  font-size: 26rpx;
+  font-family: PingFang-SC;
+  color: rgba(255, 255, 255, 1);
+  line-height: 54rpx;
+}
+
+.m-logistics-header-status {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.m-logistics-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 17rpx 46rpx 17rpx;
+}
+
+.m-logistics-good {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 38rpx;
+}
+
+.m-logistics-good-title {
+  height: 85rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: PingFang-SC;
+  font-weight: 600;
+  color: rgba(46, 47, 77, 1);
+}
+
+.m-logistics-good-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.45);
+}
+
+.m-logistics-good-item:last-child {
+  border: none;
+}
+
+.m-logistics-good-desc {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+  padding: 30rpx 28rpx 30rpx 44rpx;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.m-logistics-good-img {
+  width: 107rpx;
+  height: 107rpx;
+}
+
+.m-logistics-good-detail {
+  display: flex;
+  width: 506rpx;
+  flex-direction: column;
+}
+
+.m-logistics-good-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 27rpx;
+  font-family: PingFang-SC;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+}
+
+.m-logistics-good-price {
+  font-size: 26rpx;
+  font-weight: lighter;
+}
+
+.m-logistics-good-other {
+  font-size: 24rpx;
+  font-family: PingFang-SC;
+  font-weight: 300;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+}
+
+.m-logistics-status {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+  padding-left: 230rpx;
+  padding-top: 57rpx;
+  padding-right: 20rpx;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.m-logistics-status-item {
+  width: 100%;
+  min-height: 100rpx;
+  border-left: 2rpx solid #b5b5b5;
+  padding-left: 40rpx;
+  padding-bottom: 30rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC;
+  color: rgba(46, 47, 77, 1);
+  line-height: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.m-logistics-info-status:first-child {
+  line-height: 0;
+}
+
+.m-logistics-info-status {
+  margin-bottom: 35rpx;
+  line-height: 35rpx;
+}
+
+.m-logistics-time {
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+  font-family: PingFang-SC;
+  color: rgba(46, 47, 77, 1);
+  line-height: 40rpx;
+  position: absolute;
+  left: -200rpx;
+  top: -20rpx;
+  align-items: flex-end;
+}
+
+.m-logistics-status-item:last-child {
+  border-left: none;
+}
+
+.m-logistics-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: -20rpx;
+}
+
+.m-logistics-staus-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.m-logistics-icon-dot {
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #535353;
+  border-radius: 50%;
+  position: absolute;
+  left: -6rpx;
+}
+
+.m-logistics-time-month {
+  font-size: 26rpx;
+}
+
+.m-logistics-time-time {
+  font-size: 22rpx;
+}
+
+checkbox {
+  display: flex;
+}
+
+checkbox .wx-checkbox-input {
+  border-radius: 50%; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  border: 4rpx solid #6a6e94;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #6a6e94;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 36rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 36rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 30rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

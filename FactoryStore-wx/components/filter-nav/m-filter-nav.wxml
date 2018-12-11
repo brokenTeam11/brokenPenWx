@@ -1,0 +1,15 @@
+<view class="m-filter">
+  <block wx:for="{{list}}">
+    <view class="item" bindtap='onTap' data-id="{{item.id}}">
+      <view class="text">{{item.name}}</view>
+      <view class="arrow">
+        <image wx:if="{{item.dir === 'asc' || item.dir === 'desc'}}" mode='aspectFit' class="{{item.dir === 'asc'?'rotate':''}}" src='../../static/images/img_triangle@3x.png'></image>
+      </view>
+    </view>
+  </block>
+  <view class="item" bindtap='clickScreen'>
+    <view class="text">筛选</view>
+    <image class="screen" src='../../static/images/img_screening@3x.png'></image>
+  </view>
+</view>
+<view class="divder"></view>

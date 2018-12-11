@@ -1,0 +1,9 @@
+<view class="m-bannder">
+  <image mode='aspectFill' src='{{category.illustration}}'></image>
+</view>
+<filter-nav list="{{list}}" bind:filter="filter" bind:clickScreen="clickScreen"></filter-nav>
+<goodslist havImage="{{false}}" marginTop="21rpx" type="{{category.type}}" goodslist="{{goodslist}}"></goodslist>
+<loadmore id="loadmore" noMore="{{noMore}}" wx:if="{{loading}}"></loadmore>
+<view hidden="{{!isShow}}">
+  <filter bind:closeFunc="closeFunc" bind:getList="filterFunc" filtersData="{{filtersData}}"></filter>
+</view>

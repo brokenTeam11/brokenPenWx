@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "钻戒详情",
+  "usingComponents": {
+    "Specification":"./../../components/specifications/m-specifications"
+  }
+}

@@ -1,0 +1,68 @@
+/* pages/special/index.wxss */
+
+page {
+  height: 100%;
+}
+
+.special-image {
+  width: 100%;
+  height: 320rpx;
+}
+
+.special-image image {
+  width: 100%;
+  height: 100%;
+}
+
+.special-summary {
+  position: relative;
+  padding: 68rpx 32rpx 56rpx 93rpx;
+  background-color: white;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: rgba(125, 125, 125, 1);
+}
+
+.special-summary .quotation {
+  position: absolute;
+  width: 51rpx;
+  height: 34rpx;
+}
+
+.special-summary .quotation.reverse {
+  position: absolute;
+  bottom: 18rpx;
+  right: 22rpx;
+  transform: rotate(180deg);
+}
+
+.m-content {
+  margin-top: 21rpx;
+  background-color: #fff;
+}
+
+.m-content .cate {
+  display: inline-block;
+  font-size: 30rpx;
+  font-weight: 400;
+  color: rgba(46, 47, 77, 1);
+  line-height: 82rpx;
+  padding: 0 35rpx;
+}
+
+.m-content .cate.z-sel {
+  color: rgba(106, 110, 148, 1);
+}
+
+.m-content .nav {
+  position: relative;
+  text-align: center;
+  top: 0;
+  left: 0;
+}
+
+.m-content .nav.z-fixed {
+  position: fixed;
+  z-index: 1;
+  background-color: #fff;
+}

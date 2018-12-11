@@ -1,0 +1,13 @@
+
+<view bindtap='tapOnItem' class='specifications-conetnt-item'>
+  <view class='specifications-conetnt-title'>
+    <text>{{list.name}}</text>
+  </view>
+  <radio-group data-name="{{list.name}}" bindchange="radioChange" class='specifications-conetnt-main'>
+    <block wx:for="{{list.values}}" wx:for-item='item2' wx:key="{{index}}" wx:for-index="index">
+      <label class="specifications-conetnt-mainItem {{list.name=='手寸'?'fixed-width':''}} {{item2.select==1?'current':'' }} {{item2.isclick==2?'disabled':''}}">{{item2.value}}
+        <radio style="display:none" value="{{item2.value}}" disabled="{{item2.isclick==2}}" checked="{{item2.select==1}}"/>
+      </label>
+    </block>
+  </radio-group>
+</view>

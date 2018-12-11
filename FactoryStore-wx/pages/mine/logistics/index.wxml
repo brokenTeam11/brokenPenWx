@@ -1,0 +1,92 @@
+<!--pages/mine/logistics/index.wxml-->
+<view class='m-logistics'>
+  <view class='m-logistics-header'>
+    <view class='m-logistics-header-content'>
+      <view class='m-logistics-header-status'>{{info.status}}</view>
+      <view>物流公司：{{info.company}}</view>
+      <view>运单号码：{{info.sn}}</view>
+    </view>
+  </view>
+  <view class='m-logistics-content'>
+    <view class='m-logistics-good'>
+      <view class='m-logistics-good-title'>订单商品</view>
+      <view class='m-logistics-good-desc'>
+        <view class='m-logistics-good-item' data-id='{{item.id}}' bindtap='toDetail' wx:for="{{info.goods}}" wx:for-item="item" wx:for-index="index">
+          <image class='m-logistics-good-img' src='{{item.image}}' mode='aspectFill'></image>
+          <view class='m-logistics-good-detail'>
+            <view class='m-logistics-good-name'>
+              <text>{{item.name}}</text>
+              <text class='m-logistics-good-price'>￥{{item.price}}</text>
+            </view>
+            <view class='m-logistics-good-other'>{{item.norms}}</view>
+            <!-- <view class='m-logistics-good-other'>手寸：8</view> -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='m-logistics-status'>
+      <!-- <view class='m-logistics-status-item'>
+        <view class='m-logistics-time'>
+          <text class='m-logistics-time-month'>09-20</text>
+          <text class='m-logistics-time-time'>14:00</text>
+        </view>
+        <checkbox class='m-logistics-icon' checked></checkbox>
+        <view class='m-logistics-info'>
+          <view class='m-logistics-info-status'>已签收</view>
+          <view class='m-logistics-info-status'>福州市台江万达公寓楼1号楼***完成取件</view>
+        </view>
+      </view> -->
+
+      <!-- <view class='m-logistics-status-item'>
+        <view class='m-logistics-time'>
+          <text class='m-logistics-time-month'>09-20</text>
+          <text class='m-logistics-time-time'>14:00</text>
+        </view> -->
+      <!-- <checkbox class='m-logistics-icon' checked></checkbox> -->
+      <!-- <image src='/static/images/img_courier@3x.png' class='m-logistics-icon m-logistics-staus-img'></image>
+        <view class='m-logistics-info'>
+          <view class='m-logistics-info-status'>福建省福州市闽侯县公司派送中</view>
+          <view class='m-logistics-info-status'>派件员：***\t\t手机号：**********</view>
+        </view> -->
+      <!-- </view> -->
+
+      <view class='m-logistics-status-item' wx:for="{{info.Traces}}" wx:for-item="item2">
+        <view class='m-logistics-time'>
+          <text class='m-logistics-time-month'>{{item2.date}}</text>
+          <text class='m-logistics-time-time'>{{item2.time}}</text>
+        </view>
+        <view class='m-logistics-icon-dot'></view>
+        <view class='m-logistics-info'>
+          <view class='m-logistics-info-status'>{{item2.Remark?item2.Remark:"在途中"}}</view>
+          <view class='m-logistics-info-status'>{{item2.AcceptStation}}</view>
+        </view>
+      </view>
+      <!-- <view class='m-logistics-status-item'>
+        <view class='m-logistics-time'>
+          <text class='m-logistics-time-month'>09-20</text>
+          <text class='m-logistics-time-time'>14:00</text>
+        </view>
+        <image src='/static/images/img_transportation@3x.png' class='m-logistics-icon m-logistics-staus-img'></image>
+        <view class='m-logistics-info'>
+          <view class='m-logistics-info-status'>已揽件</view>
+          <view class='m-logistics-info-status'>湖北省市场部公司已揽收</view>
+        </view>
+      </view> -->
+
+      <!-- 默认状态，卖家已发货 -->
+
+      <!-- <view class='m-logistics-status-item'>
+        <view class='m-logistics-time'>
+          <text class='m-logistics-time-month'>09-20</text>
+          <text class='m-logistics-time-time'>14:00</text>
+        </view>
+        <image src='/static/images/img_courier@3x.png' class='m-logistics-icon m-logistics-staus-img'></image>
+        <view class='m-logistics-info'>
+          <view class='m-logistics-info-status'>已发货</view>
+          <view class='m-logistics-info-status'>卖家已发货</view>
+        </view>
+      </view> -->
+
+    </view>
+  </view>
+</view>

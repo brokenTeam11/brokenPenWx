@@ -1,0 +1,301 @@
+<import src="./../../wxParse/wxParse.wxml" />
+<view class='wrap-b'>
+  <view class="fixed-background">
+    <scroll-view scroll-into-view="{{toview}}" scroll-with-animation='true' class='detail-content' scroll-y="true" bindscroll="scrollTopFun" style="height:{{scrollHeight}}px; padding-bottom:88rpx;padding-top:{{top>100?navHeight+'px':''}}">
+      <view class='detail-head' id="good">
+        <swiper class='detail-head-swiper' circular="true" indicator-dots="true" indicator-color="rgba(106,110,148,.15)" indicator-active-color="rgba(106,110,148,1)" autoplay="true" interval="6000" duration="{{duration}}">
+          <block wx:for="{{detailArr.image}}" wx:key="{{index}}" wx:for-index="index">
+            <swiper-item>
+              <image bindtap='previewImg' mode='aspectFill' data-index="{{index}}" src="{{item}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <!-- 活动区域开始 -->
+        <view class="m-active" wx:if="{{detailArr.isactivity==1}}">
+          <view class="org_box">
+            <text class="org_bot_cor"></text> 拥有碎片：{{detailArr.activity.count}}/{{detailArr.activity.total}}枚，减免了￥{{detailArr.activity.discount}}
+          </view>
+          <view class="background" style='width:{{(detailArr.activity.count/detailArr.activity.total*100)<1&&(detailArr.activity.count/detailArr.activity.total*100)>0?"1":detailArr.activity.count/detailArr.activity.total*100}}%'></view>
+          <view>
+            <text class="left-text1">￥</text>
+            <text class="left-text2">{{detailArr.activity.currentprice}}</text>
+          </view>
+          <view class='center'>
+            <text class='center-text1'>集齐{{detailArr.activity.total}}碎片</text>
+            <text class='center-text2'>即可￥{{detailArr.activity.price}}购买</text>
+          </view>
+          <view class="right" bindtap="toGradGoods">{{detailArr.activity.status==1?'抢碎片':(detailArr.activity.status==2?'分享集碎片':'')}}</view>
+        </view>
+        <!-- 活动区域结束 -->
+        <view class='detail-head-name'>
+          <text>{{detailArr.name}}</text>
+        </view>
+        <!-- 商品参数 -->
+        <view wx:if="{{detailArr.parsum}}" class='detail-head-info'>
+          <text>{{detailArr.parsum}}</text>
+        </view>
+        <!-- 商品参数 -->
+        <!-- 商品价格 -->
+        <view class='detail-head-price'>
+          <text style="{{detailArr.isactivity==1?'text-decoration:line-through;':''}}">￥{{detailArr.price}}</text>
+        </view>
+        <!-- 商品价格 -->
+
+      </view>
+      <!-- 配送说明开始 -->
+      <view class='send-desc'>
+        <view class='send-desc-list'>
+          <text class='send-desc-title'>配送说明</text>
+          <view class='send-list-senddesc'>
+            <text>{{detailArr.illustrate}}</text>
+          </view>
+        </view>
+        <view class='send-line'></view>
+        <view class='send-desc-list'>
+          <text class='send-desc-title'>服务承诺</text>
+          <view class='send-list-severlist'>
+            <view class='send-list-severitem'>
+              <image class='send-list-severimg' src='/static/images/img_return@3x.png'></image>
+              <text class='send-list-severdesc'>30天退换</text>
+            </view>
+            <view class='send-list-severitem'>
+              <image class='send-list-severimg' src='/static/images/img_freeshipping@3x.png'></image>
+              <text class='send-list-severdesc'>全国包邮</text>
+            </view>
+            <view class='send-list-severitem'>
+              <image class='send-list-severimg' src='/static/images/img_maintenance@3x.png'></image>
+              <text class='send-list-severdesc'>终身保养</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 配送说明结束 -->
+      <!-- 顾客评价开始 -->
+      <view wx:if="{{detailArr.comment.num}}" class='evaluation' id="evaluation">
+        <view class='evaluation-title'>
+          <view class='evaluation-title-left'>顾客评价(<text>{{detailArr.comment.num}}</text>)</view>
+          <view class='evaluation-title-right' bindtap='toCustomerReviews'>
+            <text>好评{{detailArr.comment.rate}}%</text>
+            <text class='icon-right'></text>
+          </view>
+        </view>
+        <view class='evaluation-tip'>
+          <view wx:for="{{detailArr.comment.tag}}" wx:for-item="item" wx:key="item.id" data-id="{{item.id}}" class='evaluation-tip-item'>{{item.name}}({{item.sum}})</view>
+        </view>
+        <scroll-view scroll-x class='evaluation-list'>
+          <block wx:for="{{detailArr.comment.content}}" wx:for-item="item" wx:key="item.comid">
+            <view data-id='{{item.comid}}' bindtap='toCustomerReviews' class='evaluation-item'>
+              <view class='evaluator-wp'>
+                <image class='evaluator-avatar' mode='aspectFill' src='{{item.avatar}}'></image>
+                <text class='evaluator-name'>{{item.nickname}}</text>
+              </view>
+              <view class='evaluation-content'>
+                <view class='evaluation-desc {{item.image.length?"":"noImg"}}'>{{item.content}}</view>
+                <image wx:if="{{item.image.length}}" class='evaluation-img' mode='aspectFill' src='{{item.image[0]}}'></image>
+              </view>
+            </view>
+          </block>
+          <view class='more-comment' bindtap='toCustomerReviews'>
+            <view class='evaluation-item-wp'>
+              <view class='more-content'>
+                <text>更多评价</text>
+                <text class='comment-line'></text>
+                <text>See more</text>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <!-- 顾客评价结束 -->
+      <!-- 商家介绍开始 -->
+      <view class='good-desc' data-summary='{{detailArr.shop.summary}}' catchtap='toShop'>
+        <view class='good-left'>
+          <view class='good-avatar'>
+            <image class='good-avatar-img' mode='aspectFill' src='{{detailArr.shop.logo}}'></image>
+          </view>
+          <view class='good-info'>
+            <view class='good-name'>
+              <text class='good-name-desc'>{{detailArr.shop.name}}</text>
+              <text class='good-kind'>{{detailArr.shop.type}}</text>
+            </view>
+            <view class='good-tip'>
+              <view class='good-tip-desc'>
+                <template is="wxParse" data="{{wxParseData:summary.nodes}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='good-more'>
+          <text class='good-more-text'>介绍</text>
+          <text class='good-more-img'></text>
+        </view>
+      </view>
+      <!-- 商家介绍结束 -->
+
+      <!-- 钻石参数介绍开始 -->
+      <view wx:if="{{false}}" class='diamond-parameter'>
+        <view class='diamond-title'>钻石参数</view>
+        <view class='diamond-certificate'>
+          <view class='diamond-certificate-img'>
+            <image src='/static/images/test@3x.png'></image>
+          </view>
+          <view class='diamond-certificate-info'>
+            <text class='diamond-certificate-tip'>证书号</text>
+            <text class='diamond-certificate-number'>GIA6732327</text>
+          </view>
+        </view>
+        <view class='diamond-parameter-list'>
+          <view class='diamond-parameter-list-row'>
+            <view class='diamond-parameter-list-item'>
+              <text class='diamond-parameter-list-item-name'>货号</text>
+              <text class='diamond-parameter-list-item-value'>235362</text>
+            </view>
+            <view class='diamond-parameter-list-item'>
+              <text class='diamond-parameter-list-item-name'>货号</text>
+              <text class='diamond-parameter-list-item-value'>235362</text>
+            </view>
+          </view>
+          <view class='diamond-parameter-list-row'>
+            <view class='diamond-parameter-list-item'>
+              <text class='diamond-parameter-list-item-name'>货号</text>
+              <text class='diamond-parameter-list-item-value'>235362</text>
+            </view>
+            <view class='diamond-parameter-list-item'>
+              <text class='diamond-parameter-list-item-name'>货号</text>
+              <text class='diamond-parameter-list-item-value'>235362</text>
+            </view>
+          </view>
+          <view class='diamond-parameter-list-row'>
+            <view class='diamond-parameter-list-item'>
+              <text class='diamond-parameter-list-item-name'>货号</text>
+              <text class='diamond-parameter-list-item-value'>235362</text>
+            </view>
+            <view class='diamond-parameter-list-item'>
+              <text class='diamond-parameter-list-item-name'>货号</text>
+              <text class='diamond-parameter-list-item-value'>235362</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 钻石参数介绍结束 -->
+      <!-- 钻戒参数开始 -->
+      <view class='diamond-ring-parameter' id="diamond-parameter">
+        <view class='diamond-ring-parameter-item'>
+          <view class='diamond-ring-parameter-item-title'>商品参数</view>
+          <view class='diamond-ring-parameter-item-desc'>
+            <text class='diamond-ring-parameter-item-desc-title'>系列</text>
+            <text>{{detailArr.propar}}</text>
+          </view>
+        </view>
+        <view wx:if="{{detailArr.mainpar.length}}" class='diamond-ring-parameter-item'>
+          <view class='diamond-ring-parameter-item-title underline'>主石参数</view>
+          <view wx:for="{{detailArr.mainpar}}" wx:for-item="item" wx:key="{{index}}" class='diamond-ring-parameter-item-desc'>
+            <text class='diamond-ring-parameter-item-desc-title'>{{item.name}}</text>
+            <text>{{item.count}}</text>
+          </view>
+        </view>
+        <view wx:if="{{detailArr.vicepar.length}}" class='diamond-ring-parameter-item'>
+          <view class='diamond-ring-parameter-item-title underline'>辅石参数</view>
+          <view wx:for="{{detailArr.vicepar}}" wx:for-item="item" wx:for-index="index" class="diamond-ring-parameter-item-desc {{index==detailArr.vicepar.length-1?'none':''}}">
+            <text class='diamond-ring-parameter-item-desc-title'>{{item.name}}</text>
+            <text>{{item.count}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 钻戒参数结束 -->
+      <!-- 参数图文详情开始 -->
+      <view class='detial-img' id="detial-img">
+        <!-- <rich-text nodes="{{detailArr.content}}"></rich-text> -->
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+      <!-- 参数图文详情结束 -->
+    </scroll-view>
+
+    <!-- 导航条开始 -->
+    <view id="nav" class="detail-nav-wp {{top>100?'active':''}}">
+      <!-- 评价不为空 -->
+      <view wx:if="{{detailArr.comment.num}}" class='detail-nav' bindtap='goArea'>
+        <view data-current='good' class="detal-nav-item {{top>100&&top<commentTop?'active':''}}">商品</view>
+        <view data-current='evaluation' class="detal-nav-item {{top>=commentTop && top<parameterTop?'active':''}}">评价</view>
+        <view data-current='diamond-parameter' class="detal-nav-item {{top>=parameterTop && top<imgTop?'active':''}}">商品属性</view>
+        <view data-current='detial-img' class="detal-nav-item {{top>=imgTop?'active':''}}">图文介绍</view>
+      </view>
+      <!-- 评价为空 -->
+      <view wx:if="{{!detailArr.comment.num}}" class='detail-nav' bindtap='goArea'>
+        <view data-current='good' class="detal-nav-item {{top>100&&top<parameterTop?'active':''}}">商品</view>
+        <view data-current='diamond-parameter' class="detal-nav-item {{top>=parameterTop && top<imgTop?'active':''}}">商品属性</view>
+        <view data-current='detial-img' class="detal-nav-item {{top>=imgTop?'active':''}}">图文介绍</view>
+      </view>
+    </view>
+    <!-- 导航条结束 -->
+
+    <!-- 底部开始 -->
+    <view class='detail-footer'>
+      <view class='detail-footer-left'>
+        <view class='detail-footer-left-item' bindtap='goIndex'>
+          <view class='detail-footer-image-wp'>
+            <view class='detail-footer-image-home' hover-class='current'></view>
+          </view>
+          <text>首页</text>
+        </view>
+        <view bindtap='collectionFunc' class='detail-footer-left-item'>
+          <view class='detail-footer-image-wp'>
+            <image class='detail-footer-image-collection' src="{{ islove==1?isloveImg:noloveImg }}"></image>
+          </view>
+          <text>{{ islove==1?'已收藏':'收藏' }}</text>
+        </view>
+        <view class='detail-footer-left-item' bindtap='toCar'>
+          <view class='detail-footer-image-wp'>
+            <view class='detail-footer-image-car' hover-class='current'></view>
+          </view>
+          <text>购物车</text>
+          <text wx:if="{{carcount>0}}" class='carcount'>{{carcount}}</text>
+          <!-- 加入购物车的动画 -->
+          <view wx:if="{{isNotCar}}" class='car-animation'>
+            <image class='good-image' mode='widthFix' src='{{detailArr.image[0]}}'></image>
+          </view>
+          <!-- 加入购物车的动画 -->
+        </view>
+      </view>
+      <view data-normstype='{{detailArr.normstype}}' class='detail-footer-right' bindtap='tapOnBuy'>
+        <view data-bcurrent='1' wx:if="{{detailArr.isactivity!=1}}" class='detail-footer-car' hover-class='add-car-hover'>加入购物车</view>
+        <view data-bcurrent='2' wx:if="{{detailArr.isactivity!=1}}" class='detail-footer-buy' hover-class='buy-hover'>立即购买</view>
+        <view data-bcurrent='3' wx:if="{{detailArr.isactivity==1&&detailArr.activity.stock>0&&detailArr.activity.isbuy==1}}" class='detail-footer-active' hover-class='buy-hover'>{{detailArr.activity.currentprice
+          <=0? '免费兑换':( "优惠购买(￥"+detailArr.activity.currentprice+ ")")}}</view>
+            <view catchtap='showToast' data-text='已抢完，下次再来' class='detail-footer-active bg-bf' wx:if="{{detailArr.isactivity==1&&detailArr.activity.stock<=0}}">已抢完</view>
+            <view catchtap='showToast' data-text='您已抢过，下次再来吧' class='detail-footer-active bg-bf' wx:if="{{detailArr.isactivity==1&&detailArr.activity.isbuy==2&&detailArr.activity.stock>0}}">已抢过</view>
+        </view>
+      </view>
+      <!-- 底部结束 -->
+
+      <!-- 使用组件开始 -->
+      <Specification wx:if="{{isShow}}" chooseSkuList="{{chooseSkuList}}" gid="{{id}}" sku="{{sku}}" handinch="{{handinch}}" btnValue="{{btnValue}}" bind:skuFunc="skuFunc" bind:btnFunc="btnFunc" bind:nid="getNewId" bind:closeSku="closeSku" bind:getPrevInfo="getPrevInfo"></Specification>
+      <!-- 使用组件结束 -->
+
+      <!-- 在线客服 -->
+      <view class="m-customerservice">
+        <button open-type='contact'>
+          <image src='../../static/images/img_customerserivice@3x.png'></image>
+          <text>在线客服</text>
+        </button>
+      </view>
+      <!-- 在线客服 -->
+
+    </view>
+  </view>
+  <view>
+  </view>
+  <view class="m-mask" hidden='{{model}}' bindtap='closeModel'>
+    <view class='model' catchtap='stopClose'>
+      <view class='title'>活动提醒</view>
+      <view class='content'>此商品参加了碎片购活动，最高可减免￥
+        <text class="clf35554">{{detailArr.price-detailArr.activity.price}}</text>元，您当前积碎片进度为
+        <text class="clf35554">{{detailArr.activity.count}}/{{detailArr.activity.total}}</text>枚，还可以邀请更多好友帮忙集碎片，确定要直接购买吗？
+      </view>
+      <view class='bottom'>
+        <view hover-class='hover' data-id='{{detailArr.activity.id}}' bindtap='toGradGoods'>查看活动</view>
+        <view class='border'></view>
+        <view hover-class='hover' style='color:rgba(106,110,148,1);' bindtap='goOnBuy'>继续下单</view>
+      </view>
+    </view>
+  </view>

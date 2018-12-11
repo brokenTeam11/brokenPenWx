@@ -1,0 +1,38 @@
+/* components/loadmore-icon.wxss */
+
+:host {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loadmoreimage{
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-animation: 2s linear 0s normal none infinite van-rotate ;
+  animation: 2s linear 0s normal none infinite van-rotate;
+}
+
+@-webkit-keyframes van-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes van-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,6 @@
+{ 
+  "navigationBarTitleText": "靠谱好钻",
+  "usingComponents": {
+    "modal": "./../../../components/modal/m-modal"
+  }
+}

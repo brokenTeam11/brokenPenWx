@@ -1,0 +1,25 @@
+<!--pages/evaluation/post/index.wxml-->
+<view class='m-post-evaluation'>
+  <block wx:for="{{goodlist}}" wx:for-item="item" wx:key>
+    <evaluation labellist="{{labellist}}" good="{{item}}" bind:getData="getEvaluation"></evaluation>
+  </block>
+  <!-- 服务评分开始 -->
+  <view class='service-score' id="test">
+    <view class='service-item'>
+      <view class='mgr-25'>服务态度</view>
+      <star bind:getScore="getScore1"></star>
+    </view>
+    <view class='service-item'>
+      <view class='mgr-25'>商品描述</view>
+      <star bind:getScore="getScore2"></star>
+    </view>
+    <view class='service-item'>
+      <view class='mgr-25'>发货速度</view>
+      <star bind:getScore="getScore3"></star>
+    </view>
+  </view>
+  <!-- 服务评分结束 -->
+  <!-- 提交按钮开始 -->
+  <view class='m-submit' bindtap='submit'>提交</view>
+  <!-- 提交按钮结束 -->
+</view>

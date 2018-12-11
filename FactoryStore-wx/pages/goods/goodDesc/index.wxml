@@ -1,0 +1,5 @@
+<!--pages/goods/goodDesc/index.wxml-->
+<import src="./../../../wxParse/wxParse.wxml" />
+<view class='m-content-wp'>
+  <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>

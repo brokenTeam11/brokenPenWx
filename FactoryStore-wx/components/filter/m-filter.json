@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "filter-price": "./filter-price/m-filter-price",
+    "filter-kind": "./filter-kind/m-filter-kind"
+  }
+}

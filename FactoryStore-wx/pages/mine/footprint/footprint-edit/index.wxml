@@ -1,0 +1,49 @@
+<!--pages/mine/footprint/footprint-edit/index.wxml-->
+<!--pages/mine/collection/collection-edit/index.wxml-->
+<view class='collection-page'>
+  <view wx:if="{{list.length}}" class='collection-page-nav'>
+    <text>共{{count}}条足迹,最多为你保存30条</text>
+    <text bindtap='changeOnEdit' class='f-col fs32 addClickArea'>{{move?'完成':'编辑'}}</text>
+  </view>
+  <scroll-view scroll-y="true" class='{{move?"scrollView":""}}' style="height:100%" bindscrolltolower="bindscrolltolower">
+    <checkbox-group wx:if="{{list.length}}" class='m-orderList' bindchange="bindOnCheckbox">
+      <block wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+        <view class='m-orderList-item-wp'>
+          <view class='m-orderList-item {{move?"move":""}}'>
+            <checkbox value='{{item.id}}' checked='{{item.checked}}' class='m-orderList-checkbox' />
+            <view class='m-orderList-img-wp' data-id='{{item.id}}' bindtap='toGoodDetail'>
+              <image class='m-orderList-img' src='{{item.img}}' mode='aspectFill'></image>
+            </view>
+            <view class='m-orderList-info {{move?"move":""}}' data-id='{{item.id}}' bindtap='toGoodDetail'>
+              <view class='m-orderList-info-good'>
+                <view class='m-orderList-info-good-name'>{{item.name}}</view>
+                <view class='m-orderList-info-good-specification'>{{item.parsum}}</view>
+                <view class='m-orderList-info-good-specification'>￥{{item.price}}</view>
+              </view>
+            </view>
+          </view>
+          <view class='m-orderList-info-icon'>
+            <text class='m-orderList-icon-pre'></text>
+          </view>
+        </view>
+        <view class="m-orderList-line"></view>
+      </block>
+    </checkbox-group>
+    <block wx:if="{{!list.length}}">
+      <none info="{{noneData.info}}" src="{{noneData.src}}"></none>
+    </block>
+    <loadmore innerText="正在加载更多足迹" noMore="{{noMore}}" wx:if="{{loading}}"></loadmore>
+  </scroll-view>
+  <view wx:if="{{list.length}}" class='m-collection-footer {{move?"move":""}}'>
+    <view class='m-collection-footer-select'>
+      <checkbox-group bindchange="bindOnAllChckeck">
+        <checkbox id="all" checked='{{checkAll}}'></checkbox>
+      </checkbox-group>
+      <label for='all'>全选</label>
+    </view>
+    <view class='m-collection-footer-cancel' bindtap='cancelCollection'>
+      <text>删除</text>
+    </view>
+  </view>
+  <modal wx:if="{{showModal}}" cancelText="{{cancelText}}" confirmText="{{confirmText}}" title="{{title}}" bind:confirmFunc="onConfirm" bind:cancelFunc="onCancel"></modal>
+</view>

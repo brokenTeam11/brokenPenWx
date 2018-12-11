@@ -1,0 +1,39 @@
+<!--components/specifications/m-specifications.wxml-->
+<view class="mask">
+<view class='specifications-container'>
+  <view wx:if="{{sku.list}}" class='specifications-top'>
+    <view class='specifications-shop'>
+      <image mode='aspectFill' class='specifications-shop-image' src="{{sku.good.image}}"></image>
+    </view>
+    <view class='specifications-desc'>
+      <view class='specifications-desc-item'>
+        <text bindtap="test" style='font-weight:bold'>{{sku.good.name}}</text>
+      </view>
+      <view class='specifications-desc-item fs-27'>
+        <view class='specifications-info'>
+          <text class='specifications-info-value'>{{sku.good.norms}}</text>
+          <text wx:if="{{handinch.values}}" class='specifications-info-value'>手寸:{{size}}</text>
+        </view>
+      </view>
+      <view class='specifications-desc-item'>
+        <text class='price-bold'>￥{{sku.good.price}}</text>
+      </view>
+    </view>
+    <view class='close-view' bindtap='closeTap'>
+      <text class='m-close'></text>
+    </view>
+  </view>
+  <scroll-view class='specifications-conetnt' scroll-y style="max-height:600rpx">
+    <view wx:if="{{!sku.list}}" class='close-view' bindtap='closeTap' style='right:30rpx;top:-20rpx;'>
+      <text class='m-close'></text>
+    </view>
+    <view class='specifications-conetnt-list'>
+      <sku wx:for="{{sku.list}}" wx:for-item="item" wx:key="{{index}}" id="{{id}}" list="{{item}}" bind:default="default" bind:skuList="skuFunc"></sku>
+      <sku wx:if="{{handinch.values}}" list="{{handinch}}"  bind:skuList="handinchFunc"></sku>
+    </view>
+  </scroll-view>
+  <view class='specifications-footer'>
+    <button data-current="{{btnValue}}" bindtap='tapOnBtn' disabled='{{disabled}}' class='specifications-footer-btn {{disabled?"disabled":""}}'>{{btnValue==1?'加入购物车':'立即购买'}}</button>
+  </view>
+</view>
+</view>

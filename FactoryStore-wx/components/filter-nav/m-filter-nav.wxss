@@ -1,0 +1,44 @@
+.m-filter {
+  display: flex;
+}
+
+.m-filter .item {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-filter .text {
+  font-size: 27.15rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 92rpx;
+}
+
+.m-filter .arrow{
+  display: flex;
+  margin-left: 5rpx;
+  width: 13rpx;
+  height: 9rpx;
+}
+.m-filter .arrow image{
+  width: 100%;
+  height: 100%;
+}
+.m-filter .arrow .rotate{
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.m-filter .screen{
+  margin-left: 1rpx;
+  width: 19rpx;
+  height: 21rpx;
+}
+
+.divder {
+  margin: 0 auto;
+  width: 658rpx;
+  height: 2rpx;
+  background-color: #eee;
+}

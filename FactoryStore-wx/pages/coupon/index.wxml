@@ -1,0 +1,4 @@
+<view>
+  <image src="/static/images/coupon_bg.png"></image>
+  <text>暂无优惠券噢~</text>
+</view>

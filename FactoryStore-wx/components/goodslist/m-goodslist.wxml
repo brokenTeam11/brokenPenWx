@@ -1,0 +1,39 @@
+<view class="m-goodlist" style="margin-top:{{marginTop}};">
+  <view wx:if="{{havImage}}" class="topimg">
+    <image src="../../static/images/topimg@3x.png"></image>
+  </view>
+  <block wx:if="{{goodslist.length>0}}">
+    <view wx:if="{{type===2}}" class="content double">
+      <block wx:for="{{goodslist}}" wx:for-item="i" wx:key="{{index}}">
+        <view class="item" hover-class='item-slc' data-id="{{i.id}}" bindtap='toDetail'>
+          <view class="warp">
+            <view class="img-box">
+              <image mode='aspectFill' src="{{i.image}}"></image>
+            </view>
+          </view>
+          <text class="goodsname">{{i.name}}</text>
+          <text class="goodsprice">￥{{i.price}}</text>
+        </view>
+        <view class="divder" wx:if="{{(index+1)%2 == 0 && (index+1) != goodslist.length}}"></view>
+      </block>
+    </view>
+    <view wx:if="{{type===1}}" class="content single">
+      <block wx:for="{{goodslist}}" wx:for-item="i" wx:key="{{index}}">
+        <view class="item" data-id="{{i.id}}" bindtap='toDetail'>
+          <image src="{{i.image}}"></image>
+          <view class="goodstitle">
+            <text class="goodsname">{{i.name}}</text>
+            <text class="goodsprice">￥{{i.price}}</text>
+          </view>
+        </view>
+        <view class="divder"></view>
+      </block>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="m-noMore">
+      <image src='../../static/images/nodata.png'></image>
+      <view class="text1">暂无数据噢~</view>
+    </view>
+  </block>
+</view>

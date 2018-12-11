@@ -1,0 +1,323 @@
+/* pages/mine/order-detail/order-detail.wxss */
+@import "./../collection/collection-edit/index.wxss";
+
+page {
+  letter-spacing: 1px;
+}
+
+.m-order-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.mgr-120 {
+  margin-right: 120rpx;
+}
+
+.bg1 {
+  background: url(http://119.23.60.6:8097/api/image/img_payment.png) no-repeat center center;
+}
+
+.bg2 {
+  background: url(http://119.23.60.6:8097/api/image/img_delivergoods.png) no-repeat center center;
+}
+
+.bg3 {
+  background: url(http://119.23.60.6:8097/api/image/img_collectgoosd.png) no-repeat center center;
+}
+
+.bg4 {
+  background: url(http://119.23.60.6:8097/api/image/img_successfultrade.png) no-repeat center center;
+}
+.bg5 {
+  background: url(http://119.23.60.6:8097/api/image/img_successfultrade.png) no-repeat center center;
+}
+.bg6 {
+  background: url(http://119.23.60.6:8097/api/image/img_ordercancellation.png) no-repeat center center;
+}
+
+.bg7 {
+  background: url(http://119.23.60.6:8097/api/image/img_ordercancellation.png) no-repeat center center;
+}
+
+.m-order-detail-banner {
+  display: flex;
+  flex-direction: column;
+  background-size: contain;
+  height: 183rpx;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 35rpx;
+}
+
+.m-order-detail-coentent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90rpx;
+}
+
+.m-order-detail-banner-text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+}
+
+.m-order-addr {
+  display: flex;
+  flex-direction: column;
+  padding: 22rpx 34rpx;
+  background-color: #fff;
+  margin-bottom: 24rpx;
+}
+
+.m-order-addr-top {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid rgba(238, 238, 238, 0.45);
+}
+
+.m-order-addr-title {
+  font-weight: bold;
+  color: #2e2f4d;
+  font-size: 30rpx;
+  line-height: 52rpx;
+}
+
+.m-order-addr-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.m-order-addr-username {
+  font-size: 30rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+}
+
+.m-order-addr-phone {
+  font-size: 30rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+}
+
+.m-order-addr-bot {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18rpx;
+}
+
+.m-order-addr-usermessage {
+  font-size: 30rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+}
+
+.m-order-detail-desc {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 0 34rpx 10rpx;
+  margin-bottom: 24rpx;
+}
+
+.good-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.good-list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-order-detail-desc-top {
+  display: flex;
+  align-items: center;
+  font-size: 27rpx;
+  color: rgba(46, 47, 77, 1);
+  height: 74rpx;
+  border-bottom: 2rpx solid #eee;
+}
+
+.m-order-detail-desc-center {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-order-detail-item {
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-bottom: 2rpx solid #eee;
+}
+
+m-order-detail-img-wp {
+  width: 108rpx;
+  height: 97rpx;
+  margin-right: 9rpx;
+}
+
+.m-order-detail-img {
+  width: 108rpx;
+  height: 97rpx;
+  padding-top: 12rpx;
+  margin-right: 12rpx;
+}
+
+.m-order-detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.m-order-detail-name-wp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.m-order-detail-name {
+  color: #2e2f4d;
+  font-size: 27rpx;
+  line-height: 52rpx;
+  max-width: 400rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.m-order-detail-price {
+  font-weight: 300;
+  font-size: 26rpx;
+  line-height: 52rpx;
+  color: #2e2f4d
+}
+
+.m-order-detail-specification {
+  font-size: 26rpx;
+  font-weight: 300;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+}
+
+.m-order-detail-desc-bot {
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx 0 0;
+}
+
+.m-order-detail-desc-price-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 54rpx;
+}
+
+.f-fs-27 {
+  font-size: 27rpx;
+}
+
+.f-fw-bold {
+  font-weight: bold;
+}
+
+.f-col {
+  color: #fb1c05;
+}
+
+.m-order-detail-bot {
+  display: flex;
+  flex-direction: column;
+  padding: 26rpx 34rpx 15rpx;
+  background-color: #fff;
+  font-size: 26rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+  margin-bottom: 24rpx;
+}
+
+.m-order-detail-bot-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.m-order-detail-bot-title {
+  width: 250rpx;
+  letter-spacing: 0;
+}
+
+.m-order-detail-bot-value {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  letter-spacing: 0;
+  word-break: break-all;
+}
+
+.copy-btn {
+  width: 84rpx;
+  height: 40rpx;
+  border: 1px solid rgba(46, 47, 77, 0.5);
+  border-radius: 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(46, 47, 77, 1);
+  position: absolute;
+  right: 0;
+  font-size: 26rpx;
+}
+
+.m-footer-btns {
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 34rpx;
+}
+
+.m-footer-btn {
+  width: 138rpx;
+  height: 58rpx;
+  border: 1px solid rgba(106, 110, 148, 1);
+  border-radius: 6rpx;
+  font-size: 27rpx;
+  color: rgba(46, 47, 77, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 24rpx;
+}
+
+.m-footer-btn.last {
+  background-color: #6a6e94;
+  color: #fff;
+}
+
+.m-order-btn {
+  min-width: 132rpx;
+  height: 63rpx;
+  border: 1px solid rgba(46, 47, 77, 0.5);
+  border-radius: 29rpx;
+  font-size: 26rpx;
+  color: rgba(46, 47, 77, 1);
+  letter-spacing: 1px;
+  line-height: 63rpx;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 67rpx;
+  box-sizing: border-box;
+  background-color: transparent;
+}

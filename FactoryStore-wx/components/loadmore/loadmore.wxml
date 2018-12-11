@@ -1,0 +1,7 @@
+<view class="m-loading" wx:if="{{!noMore}}">
+  <loadimg></loadimg>
+  <text>{{innerText}}</text>
+</view>
+<view class="m-nomore" wx:if="{{noMore}}">
+  <text>没有更多了哦</text>
+</view>

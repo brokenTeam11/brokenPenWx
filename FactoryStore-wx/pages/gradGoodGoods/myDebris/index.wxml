@@ -1,0 +1,34 @@
+<nav-bottom myIndex="2">
+  <view class="main">
+    <scroll-view style='height:100%;' scroll-y>
+      <view class="m-block" wx:if="{{doing.fragment.length>0}}">
+        <text class="title">进行中</text>
+        <view class="info">碎片将在活动结束后失效，剩余时间:{{time}},请尽快消耗碎片购买或邀请好友获得更多。</view>
+        <view class='list'>
+          <view class='goods' wx:for="{{doing.fragment}}" wx:key="{{fragment.id}}" wx:for-item="fragment">
+            <image mode='aspectFill' src="{{fragment.img}}"></image>
+            <view class='count'>{{fragment.get}}/{{fragment.total}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="m-block" wx:if="{{doing.expend.length>0}}" style='margin-top: 15rpx;'>
+        <text class="title">已消耗</text>
+        <view class='list'>
+          <view class='goods' wx:for="{{doing.expend}}" wx:for-item="expend" wx:key="{{expend.id}}">
+            <image mode='aspectFill' src="{{expend.img}}"></image>
+            <view class='count'>减免￥{{expend.price}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="m-block" wx:if="{{invalid.length>0}}" style='margin-top: 15rpx;'>
+        <text class="title">已失效</text>
+        <view class='list'>
+          <view class='goods' wx:for="{{invalid}}" wx:for-item="invalid" wx:key="{{invalid.id}}">
+            <image mode='aspectFill' src="{{invalid.img}}"></image>
+            <view class='count'>{{invalid.get}}/{{invalid.total}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</nav-bottom>

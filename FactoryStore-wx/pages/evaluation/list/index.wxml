@@ -1,0 +1,89 @@
+<view class="m-tab">
+  <view class="item {{currentTab==0?'active':''}}" data-index="{{0}}" bindtap='clickTab'>
+    <text>待评价</text>
+  </view>
+  <view class="item {{currentTab==1?'active':''}}" data-index="{{1}}" bindtap='clickTab'>
+    <text>已评价</text>
+  </view>
+</view>
+<swiper style="height:{{winHeight}}rpx" current="{{currentTab}}" duration="300" bindchange="switchTab">
+  <swiper-item>
+    <scroll-view scroll-y="{{true}}" data-index="{{0}}" bindscrolltolower="loadmore">
+      <block wx:if="{{evaluationList.length>0}}">
+        <view class="m-evaluation {{index!=0?'mt18':''}}" wx:for="{{evaluationList}}" wx:for-item="order" wx:key="{{item.id}}">
+          <view class="top">
+            <text class="time">{{order.time}}</text>
+            <text class="status">已完成</text>
+          </view>
+          <view class='main'>
+            <view class='detail' wx:for="{{order.goodslist}}" wx:for-item="goods" bindtap='toOrderDetail' data-id="{{order.id}}">
+              <image src="{{goods.img}}"></image>
+              <view class="goodinfo fs26">
+                <text class="fs27">{{goods.title}}</text>
+                <text wx:if="{{goods.parameter}}" class="norm">{{goods.parameter}}</text>
+                <text wx:if="{{goods.norm}}" class="norm">{{goods.norm}}</text>
+              </view>
+              <text class="goodprice fs26">￥{{goods.price}}</text>
+            </view>
+            <view class="count fs26">
+              <text>共{{order.count}}件商品</text>
+              <text class="totalprice">合计：￥{{order.total}}</text>
+            </view>
+            <view class="operate">
+              <view class="button eva" data-id="{{order.id}}" hover-class='button-hover' bindtap='toPost'>评价</view>
+              <view class="button" data-id="{{order.id}}" hover-class='button-hover2' bindtap='toLogistics'>查看物流</view>
+              <view class="button" data-id="{{order.id}}" hover-class='button-hover2' bindtap='showModal'>删除订单</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:elif="{{evaluationList.length<=0&&loadover1}}">
+        <view class="m-nodata">
+          <image src="/static/images/pendingcomment_img@3x.png"></image>
+          <text>没有待评价的商品噢~</text>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="{{true}}">
+      <block wx:if="{{evaluatedList.length>0}}">
+        <view class="m-evaluated" style='{{idx!=0?"margin-top:18rpx;":""}}' wx:for="{{evaluatedList}}" wx:for-item="el" wx:for-index="idx">
+          <view class="top">
+            <view class="time">{{el.comment.time}}</view>
+            <view wx:if="{{el.comment.label.length>0}}" class="label">
+              <view wx:for="{{el.comment.label}}">{{item.name}}</view>
+            </view>
+            <view class="comment">{{el.comment.content==''||!el.comment.content?'此用户没有填写评价。':el.comment.content}}</view>
+            <view wx:if="{{el.comment.img.length>0}}" class="images">
+              <image mode="aspectFill" wx:for="{{el.comment.img}}" src='{{item}}' data-src="{{item}}" data-list='{{el.comment.img}}' bindtap='previewImage'></image>
+            </view>
+          </view>
+          <view wx:if='{{el.isappend==1}}' class="bottom">
+            <view class="append">用户{{el.append.time!='当天'?el.append.time+'后':el.append.time}}追评</view>
+            <view class="comment">{{el.append.content==''||!el.append.content?'此用户没有填写评价。':el.append.content}}</view>
+            <view wx:if="{{el.append.img.length>0}}" class="images">
+              <image mode="aspectFill" wx:for="{{el.append.img}}" src='{{item}}' data-src="{{item}}" data-list='{{el.append.img}}' bindtap='previewImage'></image>
+            </view>
+          </view>
+          <view class="goodinfo" data-id='{{el.goodsid}}' bindtap='toGoodDetail'>
+            <image src='{{el.img}}'></image>
+            <view class="info">
+              <view class="goodtitle">{{el.title}}</view>
+              <view class="goodprice">￥{{el.price}}</view>
+            </view>
+          </view>
+          <view wx:if='{{el.isappend==2}}' hover-class='button-hover' class="appendButton" data-index="{{idx}}" bindtap='toReview'>
+            <image src='/static/images/comment_btn@3x.png'></image>
+            <text>写追评</text>
+          </view>
+        </view>
+      </block>
+      <view wx:elif="{{evaluatedList.length<=0&&loadover2}}" class="m-nodata">
+        <image src="/static/images/pendingcomment_img@3x.png"></image>
+        <text>没有已评价的商品噢~</text>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<modal wx:if="{{showModal}}" cancelText="取消" confirmText="确定" title="是否确认删除订单" bind:confirmFunc="onConfirm" bind:cancelFunc="onCancel"></modal>

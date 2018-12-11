@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的足迹",
+  "usingComponents": {
+    "modal": "./../../../../components/modal/m-modal",
+    "loadmore": "./../../../../components/loadmore/loadmore",
+    "load": "./../../../../components/loadmore/loadmore-icon",
+    "none": "./../../../../components/nodata/m-nodata"
+  }
+}

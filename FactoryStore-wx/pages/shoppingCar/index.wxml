@@ -1,0 +1,61 @@
+<block wx:if="{{shopCar.length>0}}">
+  <view class="m-divder"></view>
+  <checkbox-group class="m-checkboxgroup" bindchange="checkboxShop">
+    <view wx:for="{{shopCar}}" class="m-shopView" style="{{index!==0?'margin-top:14rpx;':''}}">
+      <view class="title">
+        <checkbox value='{{item.id}}' checked='{{item.checked}}' color="white" />
+        <view class="text">{{item.name}}</view>
+      </view>
+      <checkbox-group data-index="{{index}}" bindchange="checkboxCommodity">
+        <view wx:for="{{item.goods}}">
+          <view class="m-commodity">
+            <checkbox value='{{item.cid}}' checked='{{item.checked}}' disabled="{{item.stock<=0||item.type=='2'||item.status=='2'}}" />
+            <view class="m-detail" data-gid="{{item.gid}}" bindtap='toGoodDetail'>
+              <view wx:if="{{index !== 0}}" class='m-divder'></view>
+              <image class="commodity-image" src="{{item.image}}"></image>
+              <view class="commodity-detail">
+                <view class="name">{{item.name}}</view>
+                <view class="property" style='{{(item.parameter==""&&item.norms=="")?"height:20rpx;":""}}'>{{item.parameter}}<text decode="{{true}}">&nbsp;</text>{{item.norms}}</view>
+                <view class='price'>￥{{item.price}}</view>
+              </view>
+              <!-- {{item.commodityName}} -->
+            </view>
+            <view wx:if="{{item.type=='2'||item.status=='2'}}" class="stock">
+              <block wx:if="{{item.stock<=0}}">失效</block>
+              <block wx:else>无货</block>
+            </view>
+            <view wx:else class="count">x{{item.count}}</view>
+            <view class="detele" data-cid="{{item.cid}}" bindtap='deleteGood'>删除</view>
+          </view>
+        </view>
+      </checkbox-group>
+    </view>
+  </checkbox-group>
+  <view class="m-bottom">
+    <view class="left">
+      <view class="left-left">
+        <checkbox-group bindchange="checkAll">
+          <checkbox checked='{{checkAll}}'>全选</checkbox>
+        </checkbox-group>
+      </view>
+      <view class="left-right">
+        <view class="left-left-top">总价:
+          <text style='color:RGBA(251, 28, 5, 1);'>￥{{totalPrice}}</text>
+        </view>
+        <view class="left-left-bottom">已选{{total}}件产品，免运费</view>
+      </view>
+    </view>
+    <view class="right" bindtap='toConfirm' hover-class="button-hover">去结算</view>
+  </view>
+</block>
+<block wx:else>
+  <view class="m-image">
+    <image src='../../static/images/img_shopping@3x.png'></image>
+  </view>
+  <view class="m-text">
+    <view class="text1">购物车为空
+    </view>
+    <view class="text2">您的购物车空空如也，快去选购吧!</view>
+  </view>
+</block>
+<modal wx:if="{{showModal}}" cancelText="{{cancelText}}" confirmText="{{confirmText}}" title="{{title}}" bind:confirmFunc="onConfirm" bind:cancelFunc="onCancel"></modal>

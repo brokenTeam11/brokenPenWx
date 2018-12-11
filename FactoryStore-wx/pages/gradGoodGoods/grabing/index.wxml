@@ -1,0 +1,68 @@
+<nav-bottom myIndex="0">
+  <view class="main">
+    <swiper style='height:100%;' vertical="{{true}}" bindchange="swiperChange" current-item-id="{{currentId}}">
+      <swiper-item wx:for="{{activeList}}" wx:key="{{item.id}}" item-id="{{item.id}}" catchtouchmove="{{loading?'catchTouchMove':''}}">
+        <view class="m-content">
+          <view class="s-tag">
+            <image class="tag-img" src="/static/images/tag-grapGoods.png"></image>
+            <view class="tag-text text1">
+              <text style='font-size:26rpx;white-space: nowrap;text-decoration:line-through;'>原价：￥{{item.price}}</text>
+              <text style='font-size:34rpx;'>{{item.activityprice==0?'免费':'￥'+item.activityprice}}</text>
+            </view>
+            <view class="tag-text text2">
+              <text style='font-size:26rpx;'>{{item.stock}}</text>
+              <text style='font-size:26rpx;margin-top:10rpx;'>{{time}}</text>
+            </view>
+          </view>
+          <view class="top">
+            <text class="text1">{{item.name}}</text>
+            <text class="text2">{{item.parameter}}</text>
+          </view>
+          <view class="bottom" data-goodsid="{{item.id}}" bindtap='toGoodsDetail' style="background-image: url({{item.img}})">
+            <view class="s-grapButton">
+              <view wx:if="{{status==1||status==2}}" class="count">{{status==1?'集齐'+item.fragment+'枚碎片'+(item.activityprice==0?'免费':item.activityprice+'元')+'购':status==2?fragment+'/'+item.fragment+'枚':''}}</view>
+              <view class="item" data-goodsid="{{item.id}}" data-fragment="{{item.fragment}}" catchtap="{{status==1?'grapFragmentation':(status==2?'openShare':(status==5?'toGoodsDetail':''))}}">
+                <image wx:if="{{status==2}}" src="/static/images/btn_help@3x.png"></image>
+                <text style='{{status==2?"font-size:25rpx":""}}'>{{status==1?'抢碎片':(status==2?'邀友助力':(status==3?'已抢过':(status==4?'已抢完':'立即兑换')))}}</text>
+              </view>
+            </view>
+            <view class='rule' catchtap='toRule'>活动规则</view>
+          </view>
+          <view wx:if="{{item.id==currentId&&!loading}}" data-goodsid="{{item.id}}" bindtap='toGoodsDetail' class="m-container">
+            <view wx:for="{{marqueeList}}" wx:for-item="marquee" wx:key="{{index}}" class="bullet" style="animation: first 20s linear infinite;top:{{marquee.top}}rpx;">
+              <image src="{{marquee.avatar}}"></image>
+              <text>{{marquee.text}}</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+    <view class="m-mask" hidden='{{maskDisplay}}' bindtap='closeMask'>
+      <view class='content {{infoModel?"hd":""}}' catchtap='stopCatch'>
+        <text class="text1">恭喜抢到了该商品碎片</text>
+        <view class="text2">{{count}}
+          <text>枚</text>
+        </view>
+        <text class="text3">集齐{{needfragment}}枚即可免费兑换</text>
+        <text class="text4">邀请好友一起购可额外获得大量碎片</text>
+        <view class="button" catchtap='openShare'>邀请好友一起抢</view>
+      </view>
+      <view class="m-share {{shareModel?'hd':''}}" catchtap='stopCatch'>
+        <view class="top">
+          <view hover-class='hover' class="item">
+            <button hover-class='hover' open-type='share'>
+              <image mode='aspectFill' src='/static/images/wechat_img@3x.png'></image>
+              <text>分享给朋友</text>
+            </button>
+          </view>
+          <view hover-class='hover' class="item" catchtap='toShare'>
+            <image mode='aspectFill' src='/static/images/friend_img@3x.png'></image>
+            <text>生成专属海报</text>
+          </view>
+        </view>
+        <view class="info">集满钻石碎片后购买更优惠，好友通过您的分享首次抢到碎片后，您也可以获得大量碎片。</view>
+        <view hover-class='hover' class="cancel" catchtap='cancelShare'>取消</view>
+      </view>
+    </view>
+  </view>
+</nav-bottom>

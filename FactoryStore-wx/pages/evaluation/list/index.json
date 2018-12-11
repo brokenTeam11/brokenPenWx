@@ -1,0 +1,7 @@
+{ 
+  "navigationBarTitleText": "评价列表",
+  "usingComponents": {
+    "modal": "./../../../components/modal/m-modal"
+  },
+  "disableScroll":true
+}

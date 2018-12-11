@@ -1,0 +1,5 @@
+<!--pages/mine/helpcenter/detail/index.wxml-->
+<import src="./../../../../wxParse/wxParse.wxml" />
+<view class='m-service-detail'>
+  <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>

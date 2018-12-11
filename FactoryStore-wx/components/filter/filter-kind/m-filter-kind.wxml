@@ -1,0 +1,12 @@
+<view wx:if="{{kindItem.values.length}}" class='m-filter-price m-fliter-kind'>
+  <text class='m-filter-price-title f-bottom'>{{kindItem.name}}</text>
+  <view class='g-form'>
+    <checkbox-group data-id="{{kindItem.id}}" bindchange="checkboxChange" class='m-filter-price-list'>
+      <block wx:for="{{kindItem.values}}" wx:for-item="item" wx:for-index="index">
+        <label class="m-filter-price-item {{item.checked?'current':''}}">{{item.value}}
+          <checkbox class='checkboxItem' value='{{item.id}}' checked='{{item.checked}}'/>
+        </label>
+      </block>
+    </checkbox-group>
+  </view>
+</view>

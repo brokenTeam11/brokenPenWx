@@ -1,0 +1,255 @@
+/* pages/mine/index.wxss */
+
+page {
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+.btn-authorization {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220rpx;
+  height: 66rpx;
+  white-space: nowrap;
+  background: rgba(106, 110, 148, 1);
+  border-radius: 6rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 24rpx;
+  margin-left: 28rpx;
+}
+
+.m-my {
+  height: 100%;
+  background-color: #f2f2f3;
+}
+
+.my-top {
+  height: 472rpx;
+  background: url(http://119.23.60.6:8097/api/image/img_my.png) no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.my-info {
+  display: flex;
+  flex-direction: column;
+  width: 635rpx;
+  height: 296rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 12rpx;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 125rpx;
+  position: relative;
+}
+
+.my-info-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-avatar-wp {
+  width: 124rpx;
+  height: 124rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: -10px;
+  margin-left: 14rpx;
+  overflow: hidden;
+}
+
+.user-avatar-wp.black {
+  background: rgba(112, 112, 112, 1);
+}
+
+.user-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-name {
+  display: flex;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: bold;
+  color: rgba(46, 47, 77, 1);
+  margin-left: 14rpx;
+  margin-top: 28rpx;
+}
+
+.my-info-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  bottom: 33rpx;
+  font-size: 27rpx;
+  font-family: PingFang-SC;
+  color: rgba(46, 47, 77, 1);
+  line-height: 54rpx;
+}
+
+.my-info-footer-item {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-order {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 34rpx;
+  padding: 0 30rpx;
+}
+
+.my-order-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2rpx solid rgba(238, 238, 238, 0.45);
+  padding: 26rpx 0;
+}
+
+.my-order-top-left {
+  font-size: 30rpx;
+  font-family: PingFang-SC;
+  color: rgba(46, 47, 77, 1);
+}
+
+.my-order-top-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: PingFang-SC;
+  font-weight: lighter;
+  color: #2e2f4d;
+  margin-right: 27rpx;
+}
+
+.my-order-top-right-text {
+  font-weight: 200;
+}
+
+.icon-right {
+  display: block;
+  width: 16rpx;
+  height: 16rpx;
+  border: 1px solid #bababa;
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(135deg);
+}
+
+.my-order-footer {
+  padding: 40rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.my-order-footer-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 27rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(46, 47, 77, 1);
+  line-height: 54rpx;
+  position: relative;
+  flex: 1;
+}
+
+.my-order-footer-item button {
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 27rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(46, 47, 77, 1);
+  line-height: 54rpx;
+}
+
+.my-order-footer-item button::after {
+  border: none;
+}
+
+.my-order-footer-item text {
+  white-space: nowrap;
+}
+
+.order-count {
+  position: absolute;
+  right: 30rpx;
+  top: -15rpx;
+  display: block;
+  min-width: 34rpx;
+  height: 34rpx;
+  background: rgba(237, 118, 108, 1);
+  border-radius: 17rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 34rpx;
+  letter-spacing: 0;
+}
+
+.my-order-footer-item-img1 {
+  width: 39rpx;
+  height: 42rpx;
+}
+
+.my-order-footer-item-img2 {
+  width: 49rpx;
+  height: 37rpx;
+}
+
+.my-order-footer-item-img3 {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.my-order-footer-item-img4 {
+  width: 44rpx;
+  height: 42rpx;
+}
+
+.my-order-footer-item-img5 {
+  width: 43rpx;
+  height: 47rpx;
+}
+
+.my-order-footer-item-img6 {
+  width: 42rpx;
+  height: 39rpx;
+}
+
+.my-order-footer-item-img7 {
+  width: 37rpx;
+  height: 40rpx;
+}
+
+.my-order-footer-item-img8 {
+  width: 46rpx;
+  height: 39rpx;
+}
+
+.my-order-footer-item-img9 {
+  width: 43rpx;
+  height: 37rpx;
+}

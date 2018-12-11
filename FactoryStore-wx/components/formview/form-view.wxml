@@ -1,0 +1,7 @@
+<form id="formid" bindsubmit="formSubmit" report-submit="true">
+  <!-- <button class="btn" formType='submit' hover-class='btn_hover'> -->
+  <label for='formid'>
+    <slot></slot>
+  </label>
+  <!-- </button> -->
+</form>

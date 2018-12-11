@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "抢好物",
+  "usingComponents": {
+    "nav-bottom": "/components/gradGoodsNav/index"
+  },
+  "disableScroll": true
+}

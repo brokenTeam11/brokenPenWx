@@ -1,0 +1,5 @@
+<view class="main">
+  <canvas canvas-id="shareCanvas" style="width:650rpx;height:940rpx"></canvas>
+  <view class='saveImg' bindtap='saveImg'>保存图片</view>
+  <view class="info">保存后，可前往相册选择图片分享给好友</view>
+</view>

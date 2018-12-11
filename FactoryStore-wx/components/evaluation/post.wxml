@@ -1,0 +1,59 @@
+<!--components/evaluation/post.wxml-->
+<!-- 评分以及买家印象开始 -->
+<view class='m-post-top' id="m-evaluation-top">
+  <!-- 评分 -->
+  <view class='m-good-score'>
+    <image class='m-good-image' mode='aspectFill' src='{{good.img}}'></image>
+    <view class='good-score'>
+      <view class='mgb-27'>评分</view>
+      <star bind:getScore="getScore"></star>
+    </view>
+  </view>
+  <!-- 买家印象 -->
+  <view class='m-buyer-impression'>
+    <text class='fs-29 f-bold'>买家印象</text>
+    <view class='m-impression-list'>
+      <!-- 默认印象 -->
+      <view class='m-impression mgb-40 {{item.checked?"current":""}}' catchtap='clickOnLabel' wx:for="{{labellist}}" wx:for-item="item" wx:key="id" wx:for-index="index" data-id="{{item.id}}" data-index="{{index}}">{{item.name}}</view>
+      <!-- 自定义印象 -->
+      <view class='m-impression mgb-40 {{item1.checked?"current":""}}' catchtap='clickOnLabel1' wx:for="{{labellist1}}" wx:for-item="item1" wx:for-index="index1" data-value="{{item1.name}}" data-index="{{index1}}">{{item1.name}}</view>
+      <view class='m-impression mgb-25' wx:if="{{!mask}}" catchtap='addLabels'>+添加描述</view>
+    </view>
+  </view>
+
+  <!-- 添加描述 -->
+  <view hidden='{{!mask}}' class='mask-content fixed'>
+    <input class='mask-input' placeholder='添加描述' maxlength="4" value='{{inputVal}}' bindblur='blurOnInput'></input>
+    <view class='mask-btns'>
+      <view class='mask-btn cancel' bindtap='cancelFunc'>取消</view>
+      <view class='mask-btn confirm' bindtap='conformFunc'>确定</view>
+    </view>
+  </view>
+</view>
+<!-- 评分以及买家印象结束 -->
+
+<!-- 评价开始 -->
+<view class='m-evaluation' id='evaluation{{good.listid}}'>
+  <view class='m-evaluation-area'>
+    <textarea enable="{{mask}}" maxlength='500' bindinput="blurOnTextArea" placeholder="来讨论一下它的优点和不足的地方吧！" value="{{content}}"></textarea>
+  </view>
+  <view class='m-evaluation-img-list'>
+    <view hidden='{{!uploadImgs.length}}' wx:for="{{uploadImgs}}" wx:for-item="item2" wx:for-index="index" class='m-evaluation-img-wp'>
+      <image class='m-evaluation-img' src="{{item2.url}}" data-index="{{index}}" mode='aspectFill' bindtap='previewImg'></image>
+      <view class='m-close' data-index='{{index}}' bindtap='deleteImg'></view>
+    </view>
+    <view class='m-choose-img-wp' hidden='{{uploadImgCount>=6}}' bindtap='addImg'>
+      <image class='m-choose-img' src="/static/images/photo_btn@3x.png" mode='aspectFill'></image>
+      <text class='m-choose-text'>添加图片</text>
+    </view>
+  </view>
+</view>
+<!-- 匿名评价开始 -->
+<view class='m-anonymous-evaluation'>
+  <checkbox-group class="m-anonymous-evaluation-checkbox" bindchange="checkboxChange">  
+    <checkbox id="checkbox" value="{{goodItem.isanonymity}}"></checkbox>
+    <label for="checkbox">匿名评价</label>
+  </checkbox-group>
+</view>
+<!-- 匿名评价结束 -->
+<!-- 评价结束 -->

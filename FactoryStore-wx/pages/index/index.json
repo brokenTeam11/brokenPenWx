@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "goodslist": "./../../components/goodslist/m-goodslist",
+    "MySwiper": "./../../components/swiper/swiper",
+    "Myform": "./../../components/formview/form-view",
+    "loadmore": "./../../components/loadmore/loadmore"
+  },
+  "onReachBottomDistance": 10,
+  "enablePullDownRefresh": true
+}

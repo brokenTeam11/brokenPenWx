@@ -1,0 +1,19 @@
+<nav-bottom myIndex="1">
+  <view class="main">
+    <scroll-view style='height:100%;' scroll-y bindscrolltolower='loadmore'>
+      <view class="m-topImg">
+        <image mode='aspectFill' src="https://kpzuan.com/api/image/xialianjie32.png"></image>
+      </view>
+      <view class="active-time">{{time}}</view>
+      <view class="active-name">{{name}}</view>
+      <view class="m-list">
+        <view wx:for="{{goodslist}}" wx:key="{{item.id}}" class="goods">
+          <image style="{{index%2!=0?'transform: scaleX(-1);':''}}" class="bg" src='/static/images/ats_bg.png'></image>
+          <image mode="aspectFill" src='{{item.img}}'></image>
+          <view class="price">￥{{item.price}}</view>
+          <view class="name">{{item.name}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</nav-bottom>

@@ -1,0 +1,19 @@
+<scroll-view scroll-y style='height:100%;' bindscroll='layoutScroll' bindscrolltolower="loadmore" scroll-top="{{topIndex}}">
+  <view class="special-image">
+    <image mode="aspectFill" src='{{info.image}}'></image>
+  </view>
+  <view class="special-summary">
+    <image src='/static/images/icon-qmark@3x.png' class="quotation" style="top: 36rpx;left: 28rpx;"></image>
+    <image src='/static/images/icon-qmark@3x.png' class="quotation reverse"></image>
+    <text>{{info.summary}}</text>
+  </view>
+  <view class="m-content">
+    <view style='min-height:82rpx;'>
+      <scroll-view scroll-x id="nav" class='nav {{scrollTop>topDistance?"z-fixed":""}}'>
+        <view class="cate {{item.cid==selCateId?'z-sel':''}}" wx:for="{{cateList}}" wx:key="{{item.cid}}" data-id="{{item.cid}}" bindtap='selectCate'>{{item.name}}</view>
+      </scroll-view>
+    </view>
+
+    <goodslist havImage="{{false}}" marginTop="0rpx" goodslist="{{goodsList}}"></goodslist>
+  </view>
+</scroll-view>

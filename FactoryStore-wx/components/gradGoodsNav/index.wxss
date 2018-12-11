@@ -1,0 +1,67 @@
+/* components/gradGoodsNav/index.wxss */
+
+@font-face {
+  font-family: 'iconfont'; /* project id 915939 */
+  src: url('//at.alicdn.com/t/font_915939_k96z7wmf21s.eot');
+  src: url('//at.alicdn.com/t/font_915939_k96z7wmf21s.eot?#iefix') format('embedded-opentype'),
+         url('//at.alicdn.com/t/font_915939_k96z7wmf21s.woff') format('woff'),
+         url('//at.alicdn.com/t/font_915939_k96z7wmf21s.ttf') format('truetype'),
+         url('//at.alicdn.com/t/font_915939_k96z7wmf21s.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont";
+  font-size: inherit;
+}
+
+.icon-rushtobuy:before {
+  content: '\e608';
+  font-size: 50rpx;
+}
+
+.icon-start:before {
+  content: '\e609';
+  font-size: 50rpx;
+}
+
+.icon-fragment:before {
+  content: '\e60a';
+  font-size: 50rpx;
+}
+
+.body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  height: 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 21rpx 0rpx rgba(126, 142, 158, 0.27);
+  color: #888;
+}
+
+.nav .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:17rpx 30rpx 21rpx;
+}
+
+.nav .item.z-sel {
+  color: rgba(46, 47, 77, 1);
+}
+
+.nav .title {
+  font-size: 22rpx;
+  font-weight: bold;
+}
+

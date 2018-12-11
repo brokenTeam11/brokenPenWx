@@ -1,0 +1,100 @@
+<!--pages/goods/confirm-order.wxml-->
+<view class='m-confirm-order'>
+  <view class='m-confirm-order-content'>
+    <!-- 头部收货地址开始 -->
+    <view wx:if="{{address.address}}" class='order-addtr' data-aid="{{address.aid}}" bindtap='toSelect'>
+      <view class='fs27'>收货地址</view>
+      <view class='order-addtr-center'>
+        <view class='fs36 bold text-over width595'>{{address.address}}</view>
+        <view class='icon-next'></view>
+      </view>
+      <view>
+        <text class='fs26 mgr20'>{{address.name}}</text>
+        <text class='fs26'>{{phone}}</text>
+      </view>
+    </view>
+    <view wx:if="{{!address.address}}" class='order-addtr' data-aid="{{address.aid}}">
+      <view class='order-addtr-center' bindtap='toAddAddress'>
+        <view class='fs36 bold text-over width595'>暂无收货地址请添加</view>
+        <view class='icon-next'></view>
+      </view>
+    </view>
+    <!-- 头部收货地址结束 -->
+    <!-- 购物清单开始 -->
+    <view class='order-list'>
+      <view class='order-list-title'>购物清单</view>
+      <view class='order-list-center'>
+        <view class='order-list-item' wx:for="{{data.goods.list}}" wx:for-item="item" wx:key="{{item.nid}}+{{item.gid}}" wx:for-index="index" bindtap='toGoodItem' data-nid="{{item.nid}}">
+          <image class='order-img' mode='aspectFill' src='{{item.image}}'></image>
+          <view class='order-list-info'>
+            <view class='order-list-item-top'>
+              <text>{{item.name}}</text>
+              <text class='fs26 light'>￥{{item.price}}</text>
+            </view>
+            <view class='fs24 light'>{{item.norms.substring(0,item.norms.indexOf("手"))}}</view>
+            <view class='fs24 light'>{{item.norms.substring(item.norms.indexOf("手"))}}</view>
+            <view class='fs24 light'>{{item.norms}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='order-list-footr'>
+        <text class='mgr-40'>共{{data.goods.count}}件商品</text>
+        <text class='col-red'>合计：￥{{data.goods.allprice}}</text>
+      </view>
+    </view>
+    <!-- 购物清单结束 -->
+    <!-- 买家留言开始 -->
+    <view class='buyers-message'>
+      <text>买家留言</text>
+      <input class='fs27' bindblur="handleOnInput" placeholder='点击输入备注' adjust-position='{{false}}' value="{{remark}}"></input>
+    </view>
+    <!-- 买家留言结束 -->
+    <!-- 支付方式开始 -->
+    <view class='pay-way'>
+      <view class='pay-way-top'>
+        <text>支付方式</text>
+        <text class='fs27 bold'>在线支付</text>
+      </view>
+      <view class='pay-way-center'>
+        <image class='pay-way-img' mode='aspectFill' src='/static/images/iocn_wacht@3x.png'></image>
+        <view class='pay-way-info'>
+          <text>微信支付</text>
+          <text class='light'>亿万用户的选择，更快更安全</text>
+        </view>
+      </view>
+      <view class='pay-way-footer'>
+        <text>配送方式</text>
+        <text class='bold'>商家包邮</text>
+      </view>
+    </view>
+    <!-- 支付方式结束 -->
+    <!-- 价格计算开始 -->
+    <view class='price'>
+      <view class='price-item'>
+        <text class='fs27'>商品总额</text>
+        <text class='fs27'>￥{{data.allprice}}</text>
+      </view>
+      <view class='price-item'>
+        <text>优惠</text>
+        <text>-￥{{data.discount}}</text>
+      </view>
+      <view class='price-item'>
+        <text>运费</text>
+        <text>+￥{{data.ftprice}}</text>
+      </view>
+      <view class='price-item'>
+        <text>实际支付</text>
+        <text>￥{{data.realprice}}</text>
+      </view>
+    </view>
+    <!-- 价格计算结束 -->
+  </view>
+  <!-- 底部支付开始 -->
+  <view class='btn-footer'>
+    <view class='btn-footer-left'>实付:
+      <text class='col-red'>￥{{data.realprice}}</text>
+    </view>
+    <view class='btn-submit' bindtap="submitOrder" hover-class='button-hover'>提交订单</view>
+  </view>
+  <!-- 底部支付结束 -->
+</view>

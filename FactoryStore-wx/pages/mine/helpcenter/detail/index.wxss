@@ -1,0 +1,8 @@
+/* pages/mine/helpcenter/detail/index.wxss */
+.m-service-detail{
+  background-color: #fff;
+  font-size:27rpx;
+  color:rgba(46,47,77,1);
+  line-height:54rpx;
+  padding: 39rpx 36rpx 36rpx;
+}

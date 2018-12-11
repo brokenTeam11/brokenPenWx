@@ -1,0 +1,26 @@
+.btn{
+  margin: 0;
+  padding: 0;
+  text-align:left;
+  line-height:1.5;
+  border-radius: 0px;
+   background-color: transparent;
+}
+.btn>view{
+  position: relative;
+  z-index: 1
+}
+
+
+.btn::after {
+  border: 0px;
+}
+.btn_hover{
+  color:#000000
+}
+
+input {
+  outline: none;
+  border: none;
+  list-style: none;
+}

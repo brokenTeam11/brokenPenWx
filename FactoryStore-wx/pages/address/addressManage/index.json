@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "地址管理",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "modal": "./../../../components/modal/m-modal"
+  }
+}

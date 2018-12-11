@@ -1,0 +1,50 @@
+<!--pages/evaluation/customerReviews/index.wxml-->
+<view class='m-customerReviews'>   
+    <!-- 头部标签选择开始 -->
+    <view class='m-customerReviews-top'>  
+      <view class='m-customerReviews-top-title'>
+        <image src='/static/images/heart_img@3x.png' mode='aspectFill'></image>
+        <view>好评{{commentlist.rate}}%</view>
+      </view>
+      <!-- 标签列表 -->    
+      <view  class='m-customerReviews-label-list {{close?"close":""}}'>
+        <view hidden='{{goTopHidden}}' class='m-customerReviews-label-item ' data-type='1' bindtap='clickOnType'>
+          <view wx:if="{{!commentlist.all==0}}"  class='m-customerReviews-label {{current1?"current":""}}'>
+            <text class='innerText'>全部({{commentlist.all}})</text>
+          </view>
+        </view>
+        <view wx:if="{{commentlist.good!=0}}" data-type='2' bindtap='clickOnType' class='m-customerReviews-label-item'>
+          <view class='m-customerReviews-label {{current2?"current":""}}'>
+            <text class='innerText'>好评({{commentlist.good}})</text>
+          </view>
+        </view>
+        <view wx:if="{{commentlist.img!=0}}" data-type='3' bindtap='clickOnType' class='m-customerReviews-label-item'>
+          <view class='m-customerReviews-label {{current3?"current":""}}'>
+            <text class='innerText'>有图({{commentlist.img}})</text>
+          </view>
+        </view>
+        <view wx:if="{{commentlist.review!=0}}" data-type='4' bindtap='clickOnType' class='m-customerReviews-label-item'>
+          <view class='m-customerReviews-label {{current4?"current":""}}'>
+            <text class='innerText'>追评({{commentlist.review}})</text>
+          </view>
+        </view>
+        <view wx:for="{{commentlist.label}}" wx:for-item="item" wx:for-index="index" wx:key="{{item.id}}" wx:if="{{item.num!=0}}" class='m-customerReviews-label-item'>
+          <view  class='m-customerReviews-label {{current==index+5?"current":"" && isOpen?"down":""}}' data-label="{{item.id}}" data-current="{{index+5}}" bindtap='clickOnLabel'>
+            <text  class='innerText'>{{item.name}}({{item.num}})</text>
+          </view>
+        </view>
+      </view>   
+      <view class='arrow-wp' wx:if="{{haveArrow}}">
+        <!-- 箭头 -->
+        <view class='arrow-v {{isOpen?"down":""}}' bindtap='onclick'></view>
+      </view>   
+    </view>
+    <!-- 头部标签选择结束 -->
+    <!-- 评价列表开始 -->
+    <scroll class='m-customerReviews-sv' id="scroll" open="all"  bind:pulldown="onPullDown" bind:pullup="bindscrolltolower">
+      <customerReviewsItem wx:for="{{comments}}"s wx:for-item="item1" wx:key="{{item1.id}}" reviewsItem="{{item1}}"></customerReviewsItem>
+      <!-- loadmore -->
+      <loadmore noMore="{{noMore}}" wx:if="{{loading}}"></loadmore>
+    <!-- 评价列表结束 -->
+    </scroll>
+</view>

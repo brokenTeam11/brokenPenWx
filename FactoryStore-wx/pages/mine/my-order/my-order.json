@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的订单",
+  "usingComponents": {
+    "loadmore": "./../../../components/loadmore/loadmore",
+    "load": "./../../../components/loadmore/loadmore-icon",
+    "modal": "./../../../components/modal/m-modal",
+    "none": "./../../../components/nodata/m-nodata"
+  },
+  "enablePullDownRefresh": true
+}

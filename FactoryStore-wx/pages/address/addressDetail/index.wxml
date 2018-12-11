@@ -1,0 +1,48 @@
+<view class="m-address">
+  <view class="item1">
+    <view class='left'>
+      <view class='m-borderbottom'>联系人：</view>
+      <view></view>
+    </view>
+    <view class='right'>
+      <view class='m-borderbottom'>
+        <input bindinput="bindinputName" placeholder="请输入联系人姓名" value='{{addrdetail.name}}' />
+      </view>
+      <radio-group bindchange="bindchangeRadio">
+        <view class="m-sex">
+          <view>
+            <radio color="#6a6e94" value="{{1}}" checked='{{addrdetail.sex===1?true:false}}'>
+              <text>先生</text>
+            </radio>
+          </view>
+          <view>
+            <radio color="#6a6e94" value="{{2}}" checked='{{addrdetail.sex===2?true:false}}'>
+              <text>女士</text>
+            </radio>
+          </view>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class="item2">
+    <text>手机：</text>
+    <input bindinput="bindinputPhone" placeholder="请输入手机号码" value='{{addrdetail.phone}}' />
+  </view>
+  <view class="item2">
+    <text>地区：</text>
+    <picker mode="region" bindchange="bindRegionChange">
+      <input placeholder="请选择收货地址" value='{{addrdetail.address}}' disabled />
+    </picker>
+    <image bindtap='choosLocation' mode="aspectFit" class='mapImg' src='../../../static/images/btn_map@3x.png'></image>
+  </view>
+  <view class="item2">
+    <text>详细地址：</text>
+    <input bindinput="bindinputAddress" placeholder="如楼宇、门牌号" placeholder-style="s-placeholder" value='{{addrdetail.addressdetail}}' />
+  </view>
+</view>
+<view class="m-check" bindtap='setDefault'>
+  <image src="../../../static/images/r_{{addrdetail.isdefault===2?'not':''}}selected@3x.png"></image>
+  <text>设置为默认地址</text>
+</view>
+<view class="m-btn" bindtap='submitAddress' hover-class="button-hover">保存地址</view>
+<modal wx:if="{{showModal}}" cancelText="取消" confirmText="确定" title="该功能需要授权地理位置才可使用，可以在小程序设置界面（「右上角」 - 「关于靠谱好钻」 - 「右上角」 - 「设置」）中控制对该小程序的授权状态。" bind:confirmFunc="onConfirm" bind:cancelFunc="onCancel"></modal>

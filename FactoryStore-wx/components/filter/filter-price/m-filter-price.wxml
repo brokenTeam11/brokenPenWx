@@ -1,0 +1,15 @@
+<view class='m-filter-price'>
+  <text class='m-filter-price-title'>价格(元)</text>
+  <view class='g-form'>
+    <view class='m-filter-price-form'>
+      <input type='number' value='{{ lowPrice }}' bindfocus='_bindInputFocus1' bindblur='_bindInputBlur1' class="m-filter-price-input {{isFocus1?'focus':''}}" placeholder="最低价" />
+      <text class='f-line'></text>
+      <input type='number' value='{{ highPrice }}' bindfocus='_bindInputFocus2' bindblur='_bindInputBlur2' class="m-filter-price-input {{isFocus2?'focus':''}}" placeholder="最高价"/>
+    </view>
+    <view class='m-filter-price-list'>
+      <block wx:for="{{price}}" wx:for-item="item" wx:for-index="index">
+        <view bindtap="_bindTapOnPrices" data-index="{{index}}" class='m-filter-price-item {{item.checked?"current":""}}'>{{ item.low }}{{ item.high==='max'?'以上':'-'+item.high}}</view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+/* components/star/m-satr.wxss */
+.m-star-list{
+  display: flex;
+  flex-direction: row;
+}
+.m-star{
+  width: 42rpx;
+  height: 40rpx;
+  margin-right: 17rpx;
+}
+.m-star.bling{
+  background: url(https://kpzuan.com/api/image/lightup_btn@3x.png) no-repeat center center;
+  background-size: cover
+}
+.m-star.gray{
+  background: url(https://kpzuan.com/api/image/gray_btn@3x.png) no-repeat center center;
+  background-size: cover
+}

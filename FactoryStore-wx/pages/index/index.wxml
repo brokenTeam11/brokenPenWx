@@ -1,0 +1,113 @@
+<MySwiper height="766rpx" imgUrls="{{imgUrls}}" banner="{{banner}}">
+</MySwiper>
+<view class="m-nav">
+  <view class="s-ad">
+    <image lazy-load="{{true}}" src='/static/images/img_kp@3x.png'></image>
+    <view class="info">
+      <text class="title">靠谱天然钻·100%真品</text>
+      <text class="content"><text class="iconfont icon-directsupply"></text>
+      <text>工厂店直供</text>
+      <text class="iconfont icon-certificates"></text>
+      <text>一钻双证</text>
+      <text class="iconfont icon-refundable"></text>
+      <text>15天包退换</text></text>
+    </view>
+  </view>
+  <view wx:for="{{category}}" wx:key="{{item.id}}" class="item" data-item='{{item}}' bindtap='toGoodsList'>
+    <view class='categoryImages'>
+      <image lazy-load="{{true}}" src='{{item.mainimg}}'></image>
+    </view>
+    <text>{{item.name}}</text>
+  </view>
+</view>
+<view class="m-promotions g-areas">
+  <view class="m-fragment" wx:if="{{activityList.length>0}}">
+    <view class="top">
+      <view class="u-bigtitle">抢好物</view>
+      <view class="u-ad1" style='margin-left:13rpx;'>
+        <view>限量</view>
+        <text>低至1元</text>
+      </view>
+      <view class="u-more" bindtap='toGrab'>
+        <text class="iconfont icon-arrow"></text>
+        <text>更多好物</text>
+      </view>
+    </view>
+    <scroll-view class='goodsScroll' scroll-x>
+      <view class="main">
+        <view class="item" wx:for="{{activityList}}" wx:for-item="al" wx:key="{{al.id}}" data-id="{{al.id}}" bindtap='toGrabById'>
+          <image lazy-load="{{true}}" src='{{al.img}}'></image>
+          <view class="info">
+            <text>{{al.name}}</text>
+            <text><text class="activityprice">￥{{al.activityprice}}</text> +{{al.fragment}}碎片</text>
+            <text class="price">￥{{al.price}}</text>
+          </view>
+          <view class='PBbutton' hover-class='button-hover'>马上抢</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="m-hot" data-type="1" bindtap='toHotNewList'>
+    <view class="u-bigtitle">
+      <text>热销排行</text>
+      <!-- 新版取消icon -->
+      <!-- <text class='iconfont icon-flame'></text> -->
+    </view>
+    <view class="main">
+      <view class="goods" wx:for="{{hotList}}" wx:for-item="hot" wx:key='{{hot.id}}' wx:if="{{index<=1}}">
+        <image lazy-load="{{true}}" src='{{hot.image}}'></image>
+        <text>已销售{{hot.sale}}件</text>
+      </view>
+    </view>
+  </view>
+  <view class="m-new" data-type="2" bindtap='toHotNewList'>
+    <view class="u-bigtitle">
+      <text>每日上新</text>
+      <!-- 新版取消icon -->
+      <!-- <text class='iconfont icon-new'></text> -->
+    </view>
+    <view class="main">
+      <view class="goods" wx:for="{{newList}}" wx:for-item="new" wx:key='{{new.id}}' wx:if="{{index<=1}}">
+        <image lazy-load="{{true}}" src='{{new.image}}'></image>
+        <text>￥{{new.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="m-special g-areas" wx:for="{{specialList}}" wx:for-item="sl" wx:key="{{sl.id}}" bindtap='toSpecial' data-id="{{sl.id}}">
+  <view class="u-bigtitle special-padding">{{sl.name}}</view>
+  <view>
+    <image lazy-load="{{true}}" mode="aspectFill" class="specialImage" src="{{sl.image}}"></image>
+  </view>
+  <scroll-view scroll-x>
+    <view class="main">
+      <view class="item" wx:for="{{sl.goods}}" wx:for-item="goods" wx:key="{{goods.id}}" data-id="{{goods.id}}" catchtap='toGoodsDetail'>
+        <image lazy-load="{{true}}" src='{{goods.image}}'></image>
+        <text class="price">￥{{goods.price}}</text>
+        <text class="name">{{goods.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 注释原因：首页改版 -->
+
+<!-- <goodslist havImage="{{true}}" marginTop="21rpx" goodslist="{{goodslist}}"></goodslist> -->
+<!-- <view class="m-loading" wx:if="{{loading&&!noMore}}">
+      <image src="../../static/images/img_cache@3x.png" animation="{{animation}}"></image>
+      <text>正在加载更多美钻</text>
+    </view>
+    <view class="m-nomore" wx:if="{{noMore}}">
+      <view class="line"></view>
+      <text>暂无更多</text>
+      <view class="line"></view>
+    </view> -->
+<!-- <loadmore id="loadmore" noMore="{{noMore}}" wx:if="{{loading}}"></loadmore> -->
+
+<!-- 注释原因：首页改版 -->
+<view class="m-customerservice" hidden="{{!customerservice}}">
+  <button open-type="contact">
+    <image lazy-load="{{true}}" src='../../static/images/img_customerserivice@3x.png'></image>
+    <text>在线客服</text>
+  </button>
+</view>

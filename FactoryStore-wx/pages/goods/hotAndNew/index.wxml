@@ -1,0 +1,4 @@
+<view class="m-bannder" style='height:320rpx;'>
+  <image mode='aspectFill' src='{{image[type]}}'></image>
+</view>
+<goodslist havImage="{{false}}" marginTop="21rpx" goodslist="{{goodsList}}"></goodslist>

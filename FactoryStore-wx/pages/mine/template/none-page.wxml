@@ -1,0 +1,7 @@
+<template name="nonePage">
+ <view class='none-wp'> 
+    <image class='none-img' mode='widthFix' src='{{src}}'></image>
+    <text class='none-text'>{{info}}</text>
+    <view class='none-btn'>逛一逛</view>
+  </view>
+</template>

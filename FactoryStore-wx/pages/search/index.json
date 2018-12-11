@@ -1,0 +1,7 @@
+{
+  "disableScroll":true,
+  "navigationBarTitleText":"搜索",
+  "usingComponents": {
+    "goodslist": "/components/goodslist/m-goodslist"
+  }
+}

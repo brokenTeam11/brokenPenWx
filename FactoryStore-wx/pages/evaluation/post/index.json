@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "发表评价",
+  "usingComponents": {
+    "evaluation": "/components/evaluation/post",
+    "star": "/components/star/m-star"
+  }
+}

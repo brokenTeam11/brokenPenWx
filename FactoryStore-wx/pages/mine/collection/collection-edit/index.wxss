@@ -1,0 +1,303 @@
+/* pages/mine/collection/collection-edit/index.wxss */
+page {
+  height: 100%;
+}
+
+.fs32 {
+  font-size: 32rpx;
+}
+
+.collection-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.addClickArea{
+  position: relative;
+}
+.addClickArea::before{
+  content: '';
+  position: absolute;
+  left: -10rpx;
+  right:-10rpx;
+  bottom: -10rpx;
+  top: -10rpx;
+}
+.collection-page-nav {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 74rpx;
+  border-bottom: 2rpx solid #eee;
+  padding: 0 33rpx;
+  font-size: 27rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(46, 47, 77, 1);
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.f-col {
+  color: #fb1c05;
+}
+
+
+.m-orderList{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top:74rpx;
+}
+.m-orderList-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15rpx 0;
+  background-color:#fff;
+  padding-left:14px;
+  transform:translateX(-100rpx);
+  width:120%;
+  transition: all 0.3s ease-in-out
+}
+.m-orderList-item.move{
+  transform:translateX(0);
+  width:100%;
+}
+.m-orderList-img-wp{
+  width: 138rpx;
+  height: 138rpx;
+  margin-right: 17rpx;
+  display: flex;
+  justify-content: ceter;
+  align-items: center;
+}
+.m-orderList-img{
+  width: 138rpx;
+  height: 138rpx;
+}
+.m-orderList-info{
+  width: 480rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.m-orderList-info-good{
+  display: flex;
+  flex-direction: column;
+  font-size:27rpx;
+  font-family:PingFang-SC;
+  color:rgba(46,47,77,1);
+  line-height:54rpx;
+  width: 100%;
+}
+.m-orderList-info-good-specification{
+  font-size: 26rpx;
+  font-weight: 300;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+}
+.m-orderList-icon-pre{
+  display: flex;
+  width: 21rpx;
+  height: 21rpx;
+  border: 1px solid #b2b2b2;
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(135deg)
+}
+m-orderList-item::after{
+  content: ' ';
+  width: 535rpx;
+  display: flex;
+  
+}
+.m-orderList-line{
+  height: 2rpx;
+  background:rgba(238,238,238,1);
+  margin: 0 107rpx;
+}
+.m-orderList-line:last-of-type{
+  display: none;
+}
+
+.m-orderList-checkbox{
+  margin-left: 20rpx;
+  margin-right: 40rpx;
+}
+.m-orderList{
+  height: auto;
+  /* transform: translateX(-100rpx);
+  width: 120%; */
+  background-color: #fff;
+}
+checkbox{
+  display: flex;
+}
+checkbox .wx-checkbox-input {
+  border-radius: 50%; /* 圆角 */
+  width: 36rpx; /* 背景的宽 */
+  height: 36rpx; /* 背景的高 */
+  border: 4rpx solid #6a6e94;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #6a6e94;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 36rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 36rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 30rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.m-collection-footer{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  height: 84rpx;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  transform: translateY(84rpx);
+  transition: all 0.3s ease-in-out
+}
+.m-collection-footer.move{
+  transform: translateY(0)
+}
+.m-collection-footer-select{
+  display: flex;
+  flex: 509;
+  align-items: center;
+  font-size:27rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:700;
+  color:rgba(46,47,77,1);
+  padding-left: 50rpx;
+}
+.m-collection-footer-cancel{
+  flex: 204;
+  display: flex;
+  background-color: #6A6E94;
+  justify-content: center;
+  align-items: center;
+  font-size:30.17rpx;
+  letter-spacing: 1px;
+  font-family:PingFang-SC-Medium;
+  font-weight:700;
+  color:rgba(255,255,255,1);
+}
+.m-orderList-info.move{
+  width:370rpx;
+}
+
+/* 模态框样式 */
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 502rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 138rpx;
+  border-radius: 12rpx;
+  animation:formRight 0.3s cubic-bezier(.25, .1, .3, 1.5);
+}
+@keyframes formRight{
+  from{
+				opacity: 0;
+				transform: translateX(20%);
+			}
+    to{
+      transform: translateX(0%);
+      opacity: 1;
+    }
+}
+.modal-image {
+  width: 89rpx;
+  margin: 46rpx 0 40rpx 0;
+}
+.modal-title {
+  text-align: center;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:700;
+  letter-spacing: 1px;
+  color:rgba(46,47,77,1);
+}
+.modal-footer {
+  width: 100%;
+  display: flex;
+  margin-top: 46rpx;
+  flex-direction: row;
+  height: 95rpx;
+  border-top: 2rpx solid #eee;
+  font-size: 30rpx;
+  font-family:PingFang-SC;
+  font-weight: bold;
+  line-height: 95rpx;
+  letter-spacing: 1px;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+  border-right: 2rpx solid #eee;
+  box-sizing: border-box;
+}
+.scrollView{
+  height:100%;
+  padding-bottom:84rpx
+}
+.m-orderList-item-wp{
+  position: relative;
+  display: flex;
+}
+.m-orderList-info-icon{
+  position: absolute;
+  right:35rpx;
+  top: 50%;
+  margin-top: -10rpx;
+}

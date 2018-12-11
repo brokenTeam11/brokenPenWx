@@ -1,0 +1,4 @@
+<!--components/star/m-satr.wxml-->
+<view class='m-star-list'>
+  <view class='m-star {{item<=current?"bling":"gray"}}' catchtap="changeStar" wx:for="{{stars}}" wx:for-index="idx" wx:for-item="item" data-current='{{item}}'></view>
+</view>

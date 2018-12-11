@@ -1,0 +1,28 @@
+<!--pages/mine/helpcenter/index.wxml-->
+<view class='m-helpcneter'>
+<!-- 列表 -->
+  <view class='m-helpcenter-list'>
+    <view class='m-helpcenter-item' wx:for="{{list}}" wx:for-item="item" data-name='{{item.name}}' data-id='{{item.id}}' bindtap='toDetail'>
+      <view class='m-helpcenter-item-left'>
+        <image src='{{item.image}}' mode='aspectFill'></image>
+        <text>{{item.name}}</text>
+      </view>
+      <view class='m-helpcenter-item-right'></view>
+    </view> 
+  </view>
+
+  <!-- 联系客服 -->
+  <view class='m-help-service'>
+    <view class='m-help-service-top'>客户服务24小时</view>
+    <view class='m-help-service-bottom'>
+      <button bindtap='callFunction'  class='m-help-service-bottom-item'  hover-class='none'>
+        <image class='left' src='/static/images/Telephone_btn@3x.png' mode='aspectFill'></image>
+        <text>电话客服</text>
+      </button>
+      <button class='m-help-service-bottom-item'  hover-class='none' open-type='contact'>
+        <image class='right' src='/static/images/On-line_btn@3x.png' mode='aspectFill'></image>
+        <text>在线客服</text>
+      </button>
+    </view>
+  </view>
+</view>

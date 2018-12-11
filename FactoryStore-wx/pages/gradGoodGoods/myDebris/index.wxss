@@ -1,0 +1,71 @@
+/* pages/gradGoodGoods/myDebris/index.wxss */
+
+page {
+  height: 100%;
+  background-color: #e5e5e5;
+}
+
+.main {
+  height: 100%;
+  position: relative;
+  border-top: 5rpx solid #e5e5e5;
+}
+
+.m-block {
+  padding: 37rpx 24rpx;
+  background-color: #fff;
+}
+
+.m-block .title {
+  margin-left: 4rpx;
+  padding: 0 24rpx 0 25rpx;
+  display: inline-block;
+  background: rgba(158, 144, 219, 0.75);
+  border-radius: 25rpx;
+  font-size: 31rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 50rpx;
+}
+
+.m-block .info {
+  margin-top: 19rpx;
+  padding: 0 8rpx;
+  font-size: 30rpx;
+  font-weight: 400;
+  color: #ed766c;
+  line-height: 60rpx;
+}
+
+.m-block .list {
+  margin-top: 64rpx;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.m-block .goods {
+  margin-top: 15rpx;
+  box-shadow: 0rpx 8rpx 19rpx 0px rgba(126, 142, 158, 0.2);
+  border-radius: 12rpx;
+  position: relative;
+}
+
+.m-block .goods image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.m-block .count {
+  padding: 0 8rpx 0 11rpx;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+  bottom: 0;
+  font-size: 19rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 31rpx;
+  background-color: #000;
+  border-radius: 15rpx;
+}

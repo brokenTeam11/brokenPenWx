@@ -1,0 +1,7 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval*1000}}" duration="{{duration*1000}}" circular="{{circular}}" style="height:{{height}};">
+  <block wx:for="{{banner}}" wx:key="{{item.id}}">
+    <swiper-item bindtap="navigateTo" data-type="{{item.type}}" data-url="{{item.url}}">
+      <image src="{{item.image}}" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>

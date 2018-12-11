@@ -1,0 +1,128 @@
+/* pages/address/addressManage/index.wxss */
+
+
+.m-main {
+  margin-top: 2rpx;
+  padding-bottom: 104rpx;
+}
+
+.m-address {
+  background-color: white;
+  padding: 28rpx 31rpx 26rpx 36rpx;
+}
+
+.m-address.margintop {
+  margin-top: 27rpx;
+}
+
+.m-address .item1 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  font-weight: 300;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+}
+
+.m-address .item2 {
+  margin-top: 17rpx;
+  padding-bottom: 35rpx;
+  font-size: 26rpx;
+  font-weight: 300;
+  color: rgba(46, 47, 77, 1);
+  line-height: 1.5;
+  word-break: break-all;
+  border-bottom: 3rpx solid RGBA(238, 238, 238, 0.45);
+}
+
+.m-address .item3 {
+  margin-top: 27rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.m-address .default {
+  display: flex;
+  align-items: flex-end;
+}
+
+.m-address .default text {
+  margin-left: 19rpx;
+  font-size: 27rpx;
+  font-weight: 400;
+  color: rgba(46, 47, 77, 1);
+  line-height: 1;
+}
+
+.m-address .default image {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.m-address .manage {
+  display: flex;
+}
+
+.m-address .manage .manage-item1, .m-address .manage .manage-item2 {
+  display: flex;
+  align-items: flex-end;
+}
+
+.m-address .manage .manage-item2 {
+  margin-left: 50rpx;
+}
+
+.m-address .manage .image1 {
+  width: 36rpx;
+  height: 31rpx;
+}
+
+.m-address .manage .image2 {
+  width: 28rpx;
+  height: 33rpx;
+}
+
+.m-address .manage text {
+  margin-left: 11rpx;
+  font-size: 27rpx;
+  font-weight: 400;
+  color: rgba(46, 47, 77, 1);
+  line-height: 1;
+}
+
+.m-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: RGBA(106, 110, 148, 1);
+  text-align: center;
+}
+
+.m-bottom text {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 104rpx;
+}
+
+.m-noAddress {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.m-noAddress .img-noAddress {
+  margin-top: 164rpx;
+  width: 285rpx;
+  height: 245rpx;
+}
+
+.m-noAddress text {
+  margin-top: 42rpx;
+  font-size: 30rpx;
+  font-weight: 300;
+  color: rgba(46, 47, 77, 1);
+  line-height: 52rpx;
+  text-align: center;
+}

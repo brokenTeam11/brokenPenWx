@@ -1,0 +1,92 @@
+<view class='m-my'>
+    <view class='my-top'>
+      <view class='my-info'>
+        <view class='my-info-top'> 
+          <view class='user-avatar-wp {{data.authorization==1?"black":""}}'>
+            <image mode='aspectFill' class='user-avatar' src='{{data.avatar}}'></image>
+          </view>
+          <view wx:if="{{data.authorization==2}}" class='user-name'>{{data.nickname}}</view>
+          <view wx:if="{{data.authorization==1}}" class='btn-authorization' hover-class='button-hover' bindtap='getAuthorization'>点击登录授权</view>
+        </view>
+        <view class='my-info-footer'>
+          <view class='my-info-footer-item' bindtap='toCollcetion'>
+            <text>{{data.collection}}</text>
+            <text>收藏</text>
+          </view>
+          <view class='my-info-footer-item-line'>
+            <text>|</text>
+          </view>
+          <view class='my-info-footer-item' bindtap='toFootprint'>
+            <text>{{data.foot}}</text>
+            <text>足迹</text>
+          </view>
+          <view class='my-info-footer-item-line'>
+            <text>|</text>
+          </view>
+          <view class='my-info-footer-item' bindtap='toCoupon'>
+            <text>{{data.coupon}}</text>
+            <text>优惠券</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='my-order'>
+      <view class='my-order-top'>
+        <text class='my-order-top-left'>我的订单</text>
+        <view class='my-order-top-right' bindtap='toMyOrder'>
+          <text class='my-order-top-right-text'>查看全部</text>
+          <text class='icon-right'></text>
+        </view>
+      </view>
+      <view class='my-order-footer'>
+        <view data-id="2" class='my-order-footer-item' bindtap='tapOnOrder'>
+          <image class='my-order-footer-item-img1' src='/static/images/btn_pay@3x.png'></image>
+          <text>待付款</text>
+          <view wx:if="{{!data.waitpay==0}}" class='order-count'>{{data.waitpay}}</view>
+        </view>
+        <view data-id="3" class='my-order-footer-item' bindtap='tapOnOrder'>
+          <image class='my-order-footer-item-img2' src='/static/images/btn_car@3x.png'></image>
+          <text>待发货</text>
+        </view>
+        <view data-id="4" class='my-order-footer-item' bindtap='tapOnOrder'>
+          <image class='my-order-footer-item-img3' src='/static/images/btn_consignment@3x.png'></image>
+          <text>待收货</text>
+        </view>
+        <view class='my-order-footer-item' bindtap="toEvaluationList">
+          <image class='my-order-footer-item-img4' src='/static/images/btn_evaluation@3x.png'></image>
+          <text>评价</text>
+        </view>
+        <view class='my-order-footer-item'>
+          <button open-type='contact' hover-class='none'>
+            <image class='my-order-footer-item-img5' src='/static/images/btn_refund@3x.png'></image>
+            <text>退款换货</text>
+          </button>
+        </view>
+      </view>
+    </view>
+    <view class='my-server my-order'>
+      <view class='my-order-top'>
+        <text class='my-order-top-left'>我的服务</text>
+      </view>
+      <view class='my-order-footer'>
+        <view class='my-order-footer-item' bindtap='toAddressManage'>
+          <image class='my-order-footer-item-img6' src='/static/images/btn_positioning1@3x.png'></image>
+          <text>地址管理</text>
+        </view>
+        <view class='my-order-footer-item' bindtap='toHelpCenter'>
+          <image class='my-order-footer-item-img7' src='/static/images/btn_problem@3x.png'></image>
+          <text>帮助中心</text>
+        </view>
+        <view class='my-order-footer-item'>
+          <button open-type='contact' hover-class='none'>
+            <image class='my-order-footer-item-img8' src='/static/images/btn_customerservice1@3x.png'></image>
+            <text>在线客服</text>
+          </button>
+        </view>
+        <view class='my-order-footer-item' bindtap='toAbouUs'>
+          <image class='my-order-footer-item-img9' src='/static/images/btn_diamond@3x.png'></image>
+          <text>了解工厂店</text>
+        </view>
+      </view>
+    </view>
+  </view>

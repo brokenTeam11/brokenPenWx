@@ -1,0 +1,240 @@
+<view class='m-order-detail'>
+  <view class='m-order-detail-banner bg{{order.status}}'>
+    <view wx:if='{{order.status==1}}' class='m-order-detail-coentent'>
+      <text class='m-order-detail-banner-text'>等待买家付款</text>
+      <text class='m-order-detail-banner-text'>剩{{time}}自动关闭</text>
+    </view>
+    <view wx:elif='{{order.status==2}}' class='m-order-detail-coentent'>
+      <text class='m-order-detail-banner-text'>待发货</text>
+      <text class='m-order-detail-banner-text'>您的包裹正整装待发</text>
+    </view>
+    <view wx:elif='{{order.status==3}}' class='m-order-detail-coentent'>
+      <text class='m-order-detail-banner-text'>待收货</text>
+      <text class='m-order-detail-banner-text'>您的包裹已经出发啦~记得查收</text>
+    </view>
+    <view wx:elif='{{order.status==6}}' class='m-order-detail-coentent'>
+      <text class='m-order-detail-banner-text'>订单已取消</text>
+      <text class='m-order-detail-banner-text'>可以选择再次购买噢~</text>
+    </view>
+    <view wx:elif='{{order.status==4 || order.status==5}}' class='m-order-detail-coentent'>
+      <text class='m-order-detail-banner-text'>订单已完成</text>
+      <text class='m-order-detail-banner-text'>可以选择再次购买噢~</text>
+    </view>
+    <view wx:elif='{{order.status==7}}' class='m-order-detail-coentent'>
+      <text class='m-order-detail-banner-text'>交易关闭</text>
+      <text class='m-order-detail-banner-text'>可以选择再次购买噢~</text>
+    </view>
+  </view>
+  <view class='m-order-addr'>
+    <view class='m-order-addr-top'>
+      <text class='m-order-addr-title'>收货地址</text>
+      <view class='m-order-addr-user'>
+        <text class='m-order-addr-username mgr-120'>{{order.address.name}}</text>
+        <text class='m-order-addr-phone'>{{phone}}</text>
+      </view>
+      <view class='m-order-addr-username'>{{order.address.address}}
+      </view>
+    </view>
+    <view class='m-order-addr-bot'>
+      <text class='m-order-addr-title'>买家留言</text>
+      <text class='m-order-addr-usermessage'>{{order.remark}}</text>
+    </view>
+  </view>
+  <view class='m-order-detail-desc'>
+    <view class='good-list'>
+      <view class='good-list-item' wx:for="{{order.goods}}" wx:for-item="item">
+        <view class='m-order-detail-desc-top'>
+          <text>{{item.name}}</text>
+        </view>
+        <view class='m-order-detail-desc-center'>
+          <view class='m-order-detail-item' data-id='{{item1.gid}}'  wx:for="{{item.list}}" wx:for-item="item1" catchtap='toGoodDetail'>
+            <view class='m-order-detail-img-wp'>
+              <image class='m-order-detail-img' src='{{item1.image}}' mode='aspectFill'></image>
+            </view>
+            <view class='m-order-detail-info'>
+              <view class='m-order-detail-name-wp'>
+                <text class='m-order-detail-name'>{{item1.name}}</text>
+                <text class='m-order-detail-price'>￥{{item1.price}}</text>
+              </view>
+              <text class='m-order-detail-specification'>{{item1.parameter}}</text>
+              <text class='m-order-detail-specification'>{{item1.norms}}</text>
+              <button wx:if='{{order.status==4 || order.status==5}}' class='m-order-btn' hover-class='none'>申请售后</button>
+              <button wx:elif='{{order.status==7}}' class='m-order-btn' hover-class='none'>退款成功</button>
+              <button wx:elif='{{order.status==2 || order.status==3}}' class='m-order-btn' hover-class='none'>退款</button>
+              <button wx:else class='m-order-btn' style='display:none' hover-class='none'></button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='m-order-detail-desc-bot'>
+      <view class='m-order-detail-desc-price-item f-fs-27'>
+        <text>商品总额</text>
+        <text>￥{{order.allprice}}</text>
+      </view>
+      <view class='m-order-detail-desc-price-item'>
+        <text>优惠</text>
+        <text>-￥{{order.discount}}</text>
+      </view>
+      <view class='m-order-detail-desc-price-item'>
+        <text>运费</text>
+        <text>+￥{{order.ftprice}}</text>
+      </view>
+      <view class='m-order-detail-desc-price-item'>
+        <text class='f-fw-bold'>实付款</text>
+        <text class='f-col'>￥{{order.realprice}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='m-order-detail-bot'>
+    <view class='m-order-detail-bot-item'>
+      <view class='m-order-detail-bot-title'>订单号：</view>
+      <view class='m-order-detail-bot-value'>
+        <text>{{order.sn || ''}}</text>
+        <view class='copy-btn' bindtap='copyON'>复制</view>
+      </view>
+    </view>
+    <view class='m-order-detail-bot-item'>
+      <view class='m-order-detail-bot-title'>微信交易单号：</view>
+      <view class='m-order-detail-bot-value'>
+        <view>{{order.paysn}}</view>
+      </view>
+    </view>
+    <block wx:if='{{order.status==1}}'>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>下单时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.ordertime}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:if='{{order.status==2}}'>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>下单时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.ordertime}}</text>
+        </view>
+      </view>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>付款时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.paytime}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:if='{{order.status==3}}'>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>下单时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.ordertime}}</text>
+        </view>
+      </view>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>付款时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.paytime}}</text>
+        </view>
+      </view>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>发货时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.sendtime}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:if='{{order.status==4 || order.status==5}}'>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>下单时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.ordertime}}</text>
+        </view>
+      </view>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>付款时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.paytime}}</text>
+        </view>
+      </view>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>成交时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.receipttime}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:if='{{order.status==6}}'>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>下单时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.ordertime}}</text>
+        </view>
+      </view>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>取消时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.canceltime}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:if='{{order.status==7}}'>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>下单时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.ordertime}}</text>
+        </view>
+      </view>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>付款时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.paytime}}</text>
+        </view>
+      </view>
+      <view class='m-order-detail-bot-item'>
+        <view class='m-order-detail-bot-title'>发货时间：</view>
+        <view class='m-order-detail-bot-value'>
+          <text>{{order.sendtime}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <block wx:if='{{order.status==1}}'>
+    <view class='m-footer-btns'>
+      <view class='m-footer-btn' hover-class='button-hover2' bindtap='cancelOrder'>取消订单</view>
+      <view class='m-footer-btn last' hover-class='button-hover' bindtap='payRight'>立即支付</view>
+    </view>
+  </block>
+  <block wx:if='{{order.status==3}}'>
+    <view class='m-footer-btns'>
+      <view class='m-footer-btn' hover-class='button-hover2' bindtap='lookLogistics'>查看物流</view>
+      <view class='m-footer-btn last' hover-class='button-hover' bindtap='confirmOrder'>确认收货</view>
+    </view>
+  </block>
+  <block wx:if='{{order.status==6}}'>
+    <view class='m-footer-btns'>
+      <view class='m-footer-btn' hover-class='button-hover' bindtap='deleteOrder'>删除订单</view>
+      <view class='m-footer-btn last' hover-class='button-hover2' bindtap='buyOnce'>再次购买</view>
+    </view>
+  </block>
+  <block wx:if='{{order.status==4}}'>
+    <view class='m-footer-btns'>
+      <view class='m-footer-btn' hover-class='button-hover2' bindtap='deleteOrder'>删除订单</view>
+      <view class='m-footer-btn last' hover-class='button-hover2' bindtap='lookLogistics'>查看物流</view>
+      <view class='m-footer-btn last' hover-class='button-hover'  bindtap='toEvaluation'>评价</view>
+    </view>
+  </block>
+  <block wx:if='{{order.status==5}}'>
+      <view class='m-footer-btns'>
+        <view class='m-footer-btn' hover-class='button-hover2' bindtap='deleteOrder'>删除订单</view>
+        <view class='m-footer-btn last' hover-class='button-hover' bindtap='lookLogistics'>查看物流</view>
+      </view>
+  </block>
+  <block wx:if='{{order.status==7}}'>
+    <view class='m-footer-btns'>
+      <view class='m-footer-btn' hover-class='button-hover' bindtap='deleteOrder'>删除订单</view>
+    </view>
+  </block>
+
+  <!--弹窗-->
+    <modal wx:if="{{showModal1}}" cancelText="{{cancelText1}}" confirmText="{{confirmText1}}" title="{{title1}}" bind:confirmFunc="onConfirm1" bind:cancelFunc="onCancel1"></modal>
+    <modal wx:if="{{showModal4}}" cancelText="{{cancelText4}}" confirmText="{{confirmText4}}" title="{{title4}}" bind:confirmFunc="onConfirm4" bind:cancelFunc="onCancel4"></modal>
+</view>

@@ -1,0 +1,7 @@
+{ 
+  "disableScroll": true,
+  "navigationBarTitleText": "靠谱好钻",
+  "usingComponents": {
+    "goodslist": "/components/goodslist/m-goodslist"
+  }
+}

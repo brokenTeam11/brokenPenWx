@@ -1,0 +1,293 @@
+/* pages/goods/confirm-order.wxss */
+
+.fs27 {
+  font-size: 27rpx;
+}
+
+.fs26 {
+  font-size: 26rpx;
+}
+
+.fs24 {
+  font-size: 24rpx;
+}
+
+.fs36 {
+  font-size: 36rpx;
+}
+
+.mgr20 {
+  margin-right: 20rpx;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.col-red {
+  color: #fb1c05;
+}
+
+.text-over {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bgc-000 {
+  background-color: #000;
+}
+
+.width595 {
+  width: 595rpx;
+}
+
+.m-confirm-order {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1px;
+}
+
+.m-confirm-order-content {
+  padding-bottom: 85rpx;
+}
+
+.order-addtr {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #fff;
+  line-height: 52rpx;
+  padding-left: 34rpx;
+  padding-right: 42rpx;
+  height: 190rpx;
+  background-color: rgba(140, 151, 203, 0.7);
+}
+
+.order-addtr-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-next {
+  width: 21rpx;
+  height: 21rpx;
+  border: 1px solid #fff;
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(135deg);
+}
+
+/* 购物清单开始 */
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 34rpx;
+  margin-top: 6rpx;
+  background-color: #fff;
+}
+
+.order-list-title {
+  display: flex;
+  align-items: center;
+  height: 68rpx;
+  font-size: 30rpx;
+  color: rgba(46, 47, 77, 1);
+  border-bottom: 2rpx solid rgba(238, 238, 238, 0.45);
+}
+
+.order-list-center {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12rpx 0;
+  border-bottom: 2rpx solid rgba(238, 238, 238, 0.45);
+}
+
+.order-img {
+  width: 107rpx;
+  height: 107rpx;
+  margin-right: 7rpx;
+}
+
+.order-list-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 27rpx;
+  color: #2e2f4d;
+  line-height: 52rpx;
+}
+
+.order-list-item-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.order-list-footr {
+  display: flex;
+  flex-direction: row;
+  height: 69rpx;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 26rpx;
+  color: rgba(153, 153, 153, 1);
+}
+
+.mgr-40 {
+  margin-right: 40rpx;
+}
+
+/* 购物清单结束 */
+
+/* 买家留言开始 */
+
+.buyers-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 94rpx;
+  padding: 0 34rpx;
+  background-color: #fff;
+  margin-top: 22rpx;
+  font-size: 30rpx;
+  color: rgba(46, 47, 77, 1);
+}
+
+.buyers-message input {
+  text-align: right;
+  color: #999;
+  flex: 1;
+  letter-spacing: 0;
+  display: flex;
+  padding: 0;
+}
+
+/* 买家留言结束 */
+
+/* 支付方式开始 */
+
+.pay-way {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  margin-top: 22rpx;
+  padding: 0 34rpx;
+}
+
+.pay-way-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 74rpx;
+  font-size: 30rpx;
+  color: rgba(46, 47, 77, 1);
+  border-bottom: 2rpx solid rgba(238, 238, 238, 0.45);
+}
+
+.pay-way-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10rpx 0 10rpx 20rpx;
+  border-bottom: 2rpx solid rgba(238, 238, 238, 0.45);
+}
+
+.pay-way-img {
+  width: 58rpx;
+  height: 49rpx;
+  margin-right: 33rpx;
+}
+
+.pay-way-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 48rpx;
+}
+
+.pay-way-footer {
+  display: flex;
+  height: 74rpx;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 27rpx;
+  color: rgba(46, 47, 77, 1);
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  margin-top: 22rpx;
+  padding: 0 34rpx;
+  margin-bottom: 29rpx;
+}
+
+.price-item {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 54rpx;
+}
+
+/* 支付方式结束 */
+
+/* 底部支付开始 */
+
+.btn-footer {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 85rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-footer-left {
+  flex: 1;
+  font-size: 30rpx;
+  color: rgba(46, 47, 77, 1);
+  padding-left: 34rpx;
+  align-items: center;
+}
+
+.btn-submit {
+  width: 291rpx;
+  height: 85rpx;
+  color: #fff;
+  background: rgba(106, 110, 148, 1);
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 底部支付结束 */

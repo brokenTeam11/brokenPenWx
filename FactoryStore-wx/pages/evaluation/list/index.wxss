@@ -1,0 +1,273 @@
+/* pages/evaluation/list/index.wxss */
+
+.m-tab {
+  margin-top: 1rpx;
+  display: flex;
+  background-color: #fff;
+}
+
+.m-tab .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90rpx;
+  box-sizing: border-box;
+  flex: 1;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 400;
+  color: rgba(46, 47, 77, 1);
+  border-bottom: 5rpx solid #f5f5f5;
+}
+
+.m-tab .item.active {
+  border-bottom: 5rpx solid rgba(251, 28, 5, 1);
+}
+
+scroll-view {
+  height: 100%;
+}
+
+.m-evaluation {
+}
+
+.m-evaluation>view {
+  background-color: #fff;
+}
+
+.m-evaluation .top {
+  display: flex;
+  height: 90rpx;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 42rpx 0 36rpx;
+  font-size: 27rpx;
+  color: rgba(46, 47, 77, 1);
+}
+
+.m-evaluation .main {
+  border-top: 5rpx solid #f5f5f5;
+  padding: 0 37rpx 31rpx 33rpx;
+}
+
+.m-evaluation .time {
+  font-weight: 300;
+}
+
+.m-evaluation .status {
+  font-weight: 500;
+}
+
+.m-evaluation .detail {
+  display: flex;
+  padding: 31rpx 0 44rpx;
+  border-bottom: 5rpx solid #f5f5f5;
+}
+
+.m-evaluation image {
+  width: 138rpx;
+  height: 138rpx;
+}
+
+.m-evaluation .goodinfo {
+  margin-left: 17rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 0;
+  color: rgba(46, 47, 77, 1);
+}
+
+.m-evaluation .norm {
+  margin-top: 15rpx;
+  font-weight: 300;
+}
+
+.m-evaluation .goodprice {
+  font-weight: 300;
+}
+
+.m-evaluation .count {
+  font-weight: 300;
+  text-align: right;
+  color: rgba(46, 47, 77, 1);
+  line-height: 68rpx;
+}
+
+.m-evaluation .totalprice {
+  margin-left: 20rpx;
+  color: rgba(251, 28, 5, 1);
+}
+
+.m-evaluation .operate {
+  margin-top: 19rpx;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.m-evaluation .button {
+  box-sizing: border-box;
+  min-width: 138rpx;
+  margin-left: 25rpx;
+  padding: 0 15rpx;
+  font-size: 27rpx;
+  color: rgba(46, 47, 77, 1);
+  line-height: 58rpx;
+  border: 1px solid rgba(106, 110, 148, 1);
+  border-radius: 6rpx;
+  text-align: center;
+}
+
+.m-evaluation .button.eva {
+  background-color: rgba(106, 110, 148, 1);
+  color: #fff;
+}
+
+.m-nodata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.m-nodata image {
+  margin-top: 137rpx;
+  width: 280rpx;
+  height: 256rpx;
+}
+
+.m-nodata text {
+  margin-top: 58rpx;
+  font-size: 30rpx;
+  font-weight: 300;
+  color: rgba(46, 47, 77, 1);
+}
+
+.m-evaluated {
+  background-color: #fff;
+  color: rgba(46, 47, 77, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.m-evaluated .top {
+  padding: 24rpx 37rpx;
+}
+
+.m-evaluated .time {
+  font-size: 27rpx;
+  font-weight: 300;
+  line-height: 41rpx;
+  letter-spacing: 2rpx;
+}
+
+.m-evaluated .label {
+  margin-top: 11rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.m-evaluated .label>view {
+  margin-right: 34rpx;
+  margin-top: 10rpx;
+  padding: 0 24rpx;
+  font-size: 29rpx;
+  font-weight: 500;
+  color: rgba(46, 47, 77, 1);
+  line-height: 53rpx;
+  border: 1px solid rgba(125, 125, 125, 0.3);
+  border-radius: 6rpx;
+  letter-spacing: 2rpx;
+}
+
+.m-evaluated .comment {
+  margin-top: 23rpx;
+  font-size: 29rpx;
+  font-weight: 500;
+  line-height: 41rpx;
+  letter-spacing: 2rpx;
+}
+
+.m-evaluated .images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.m-evaluated .images::after {
+  content: '';
+  width: 204rpx;
+}
+
+.m-evaluated .images image {
+  margin-top: 25rpx;
+  width: 204rpx;
+  height: 140rpx;
+}
+
+.m-evaluated .bottom {
+  padding: 24rpx 37rpx;
+  border-top: 5rpx solid #f5f5f5;
+}
+
+.m-evaluated .append {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: rgba(239, 97, 97, 1);
+}
+
+.m-evaluated .goodinfo {
+  padding: 18rpx 13rpx;
+  margin-bottom: 29rpx;
+  width: 658rpx;
+  display: flex;
+  border: 1px solid rgba(77, 77, 77, 0.3);
+  border-radius: 12rpx;
+  align-self: center;
+}
+
+.m-evaluated .goodinfo image {
+  width: 108rpx;
+  height: 108rpx;
+}
+
+.m-evaluated .info {
+  padding-left: 27rpx;
+  font-size: 27rpx;
+  font-weight: 400;
+  color: rgba(46, 47, 77, 1);
+  line-height: 37rpx;
+  border-left: 1px solid rgba(125, 125, 125, 0.5);
+  flex: 1;
+  width: 0;
+}
+
+.m-evaluated .goodprice {
+  margin-top: 19rpx;
+}
+
+.m-evaluated .appendButton {
+  margin-right: 36rpx;
+  margin-top: -11rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  width: 155rpx;
+  height: 65rpx;
+  justify-content: center;
+  align-items: center;
+  font-size: 29rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(106, 110, 148, 1);
+  border-radius: 6rpx;
+  align-self: flex-end;
+}
+
+.m-evaluated .appendButton image {
+  width: 33rpx;
+  height: 29rpx;
+}
+
+.m-evaluated .appendButton text {
+  margin-left: 7rpx;
+  letter-spacing: 2rpx;
+}

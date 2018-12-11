@@ -1,0 +1,30 @@
+<!--pages/evaluation/post/reviews/index.wxml-->
+<view class='m-post-reviews'>
+  <view class='m-post-reviews-top'>
+    <image class='m-good-image' mode='aspectFill' src="{{data.img}}"></image>
+    <view class='m-good-name'>{{data.title}}</view>
+  </view>
+  <view class='m-post-reviews-center'>
+    <textarea class='m-post-reviews-textarea' maxlength="500" bindinput="blurOnTextArea" focus placeholder="你已经拥有了一段时间了，分享给想买的他们吧！"></textarea>
+    <view class='m-evaluation-img-list'>
+      <view hidden='{{!tempImage.length}}' wx:for="{{tempImage}}" wx:key="{{index}}" wx:for-item="item2" wx:for-index="index" class='m-evaluation-img-wp'>
+        <image class='m-evaluation-img' src="{{item2.url}}" data-index='{{index}}' mode='aspectFill' bindtap='previewImg'></image>
+        <view class='m-close' data-index='{{index}}' bindtap='deleteImg'></view>
+      </view>
+      <view class='m-choose-img-wp' hidden='{{tempImage.length>=6}}' bindtap='addImg'>
+        <image class='m-choose-img' src="/static/images/photo_btn@3x.png" mode='aspectFill'></image>
+        <text class='m-choose-text'>添加图片</text>
+      </view>
+    </view>
+  </view>
+  <!-- 匿名评价开始 -->
+  <view class='m-anonymous-evaluation'>
+    <checkbox-group class="m-anonymous-evaluation-checkbox" bindchange="checkboxChange">  
+      <checkbox id="checkbox" value="{{isanonymity}}"></checkbox>
+      <label for="checkbox">匿名评价</label>
+    </checkbox-group>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class='m-post-reviews-btn' hover-class='button-hover' bindtap='submitReviews'>发表追评</view>
+</view>

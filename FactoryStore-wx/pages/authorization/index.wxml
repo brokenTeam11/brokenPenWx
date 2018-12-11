@@ -1,0 +1,46 @@
+<!--pages/authorization/index.wxml-->
+<view class='authorization'>
+  <image class='logo' mode='aspectFill' src="/static/images/logo.png"></image>
+  <view class='name'>钻界工厂店</view>
+  <view class='info'>精选钻石行业TOP制造商直供</view>
+  <view class='desc'>
+    <view class='desc-item'>
+      <view class='desc-item-img-wp'>
+        <image class='desc-item-img1' mode='aspectFill' src='/static/images/diamonds_img@3x.png'></image>
+      </view>
+      <view class='desc-item-info'>
+        <text>100%真品</text>
+        <text class='fs22'>一钻双证，假一赔十</text>
+      </view>
+    </view>
+    <view class='desc-item'>
+      <view class='desc-item-img-wp'>
+        <image class='desc-item-img2' mode='aspectFill' src='/static/images/money_img@3x.png'></image>
+      </view>
+      <view class='desc-item-info'>
+        <text>低价保障</text>
+        <text class='fs22'>去掉中间环节，确保低价</text>
+      </view>
+    </view>
+    <view class='desc-item'>
+      <view class='desc-item-img-wp'>
+        <image class='desc-item-img3' mode='aspectFill' src='/static/images/30_img@3x.png'></image>
+      </view>
+      <view class='desc-item-info'>
+        <text>30天无忧退换</text>
+        <text class='fs22'>全程保险，退换无忧</text>
+      </view>
+    </view>
+    <view class='desc-item'>
+      <view class='desc-item-img-wp'>
+        <image class='desc-item-img4' mode='aspectFill' src='/static/images/maintain_img@3x.png'></image>
+      </view>
+      <view class='desc-item-info'>
+        <text>终身保养</text>
+        <text class='fs22'>免费改手寸，免费保养</text>
+      </view>
+    </view>
+  </view>
+  <button class='btn' hover-class='button-hover' open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权快捷登录</button>
+  <view class='resume'>微信授权即可享受微信特权价</view>
+</view>

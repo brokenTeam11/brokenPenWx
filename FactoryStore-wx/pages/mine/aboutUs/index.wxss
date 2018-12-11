@@ -1,0 +1,2 @@
+/* pages/mine/aboutUs/index.wxss */
+@import './../../authorization/index.wxss'

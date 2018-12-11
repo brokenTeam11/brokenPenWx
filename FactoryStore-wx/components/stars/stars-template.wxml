@@ -1,0 +1,6 @@
+ <!-- components/stars/stars-template.wxml -->
+<view class='stars' style='width:{{size * stars.length}}rpx;height:{{size}}rpx;'>
+		<block wx:for="{{stars}}" wx:key="{{index}}">
+				<image src="./images/{{item == 0 ? 'grayStar':item}}.png" style='width:{{size}}rpx;height:{{size}}rpx;' data-index="{{index}}"></image>
+		</block>
+</view>

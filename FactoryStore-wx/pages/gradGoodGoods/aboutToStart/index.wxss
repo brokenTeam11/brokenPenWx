@@ -1,0 +1,99 @@
+/* pages/gradGoodGoods/aboutToStart/index.wxss */
+
+page {
+  height: 100%;
+  background-color: #e5e5e5;
+}
+
+.main {
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.m-topImg {
+  height: 327rpx;
+}
+
+.m-topImg image {
+  width: 100%;
+  height: 100%;
+}
+
+.active-time {
+  display: inline-block;
+  margin-top: 38rpx;
+  background-color: rgba(182, 172, 228, 0.75);
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 1);
+  line-height: 56rpx;
+  padding: 0 60rpx;
+  border-radius: 28rpx;
+}
+
+.active-name {
+  margin-top: 30rpx;
+  font-size: 37rpx;
+  font-weight: 500;
+  color: rgba(46, 47, 77, 1);
+}
+
+.m-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 19rpx;
+  padding: 0 24rpx 0 29rpx;
+}
+
+.m-list .goods {
+  margin-top: 20rpx;
+  padding: 28rpx 21rpx 51rpx 29rpx;
+  box-sizing: border-box;
+  width: 338rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  word-break: break-all;
+  border-radius: 12rpx;
+  position: relative;
+}
+
+.m-list image {
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.m-list .name, .m-list .price {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.m-list .price {
+  margin-top: 15rpx;
+  font-size: 39rpx;
+  font-weight: 500;
+  color: rgba(106, 110, 148, 1);
+  line-height: 41rpx;
+  text-decoration:line-through;
+}
+
+.m-list .name {
+  font-size: 26rpx;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 1);
+  line-height: 52rpx;
+}
+
+.m-list .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}

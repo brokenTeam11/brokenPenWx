@@ -1,0 +1,5 @@
+<view class='none-wp'>
+  <image class='none-img' mode='widthFix' src='{{src}}'></image>
+  <text class='none-text'>{{info}}</text>
+  <navigator class='none-btn' url="/pages/index/index" open-type="switchTab">逛一逛</navigator>
+</view>

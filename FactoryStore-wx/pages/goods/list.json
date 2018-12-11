@@ -1,0 +1,10 @@
+{ 
+  "navigationBarTitleText": "靠谱好钻",
+  "usingComponents": {
+    "goodslist": "./../../components/goodslist/m-goodslist",
+    "Myform": "./../../components/formview/form-view",
+    "filter-nav":"./../../components/filter-nav/m-filter-nav",
+    "filter":"./../../components/filter/m-filter",
+    "loadmore": "./../../components/loadmore/loadmore"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "顾客评价",
+  "usingComponents": {
+    "customerReviewsItem": "/components/customerReviewsItem/m-customer-reviews-item",
+    "loadmore": "/components/loadmore/loadmore",
+    "scroll": "/components/scroll/index"
+  }
+}

@@ -1,0 +1,127 @@
+/* pages/authorization/index.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: url(http://119.23.60.6:8097/api/image/ground.png) no-repeat center center;
+  background-size: cover;
+  letter-spacing: 1px;
+}
+
+.authorization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 177rpx;
+  height: 177rpx;
+  border-radius: 36rpx;
+  box-shadow: 5rpx 10rpx 20rpx rgba(0, 0, 0, 0.25);
+  margin-top: 114rpx;
+}
+
+.name {
+  font-size: 43rpx;
+  font-family: PingFang SC;
+  font-weight: 700;
+  color: rgba(70, 69, 69, 1);
+  margin-top: 30rpx;
+}
+
+.info {
+  font-size: 29rpx;
+  font-family: PingFang-SC;
+  color: rgba(70, 69, 69, 1);
+  margin-top: 32rpx;
+}
+
+.desc {
+  display: flex;
+  width: 100%;
+  height: 283rpx;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: rgba(46, 47, 77, 0.03);
+  margin-top: 48rpx;
+  align-items: center;
+  padding: 0 16rpx;
+  box-sizing: border-box;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 611rpx;
+  height: 87rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC;
+  color: rgba(255, 255, 255, 1);
+  background: #2e2f4d;
+  box-shadow: 9rpx 10rpx 20rpx rgba(30, 30, 33, 0.2);
+  margin-top: 70rpx;
+}
+
+.resume {
+  font-size: 29rpx;
+  font-family: PingFang-SC;
+  color: #464545;
+  margin-top: 37rpx;
+}
+
+.desc-item {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.desc-item-img-wp {
+  width: 67rpx;
+  height: 67rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6rpx;
+}
+
+.desc-item-img1 {
+  width: 43rpx;
+  height: 34rpx;
+}
+
+.desc-item-img2 {
+  width: 25rpx;
+  height: 35rpx;
+}
+
+.desc-item-img3 {
+  width: 34rpx;
+  height: 22rpx;
+}
+
+.desc-item-img4 {
+  width: 36rpx;
+  height: 37rpx;
+}
+
+.desc-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 24rpx;
+  font-family: PingFang-SC;
+  color: rgba(70, 69, 69, 1);
+  line-height: 36rpx;
+}
+
+.fs22 {
+  font-size: 22rpx;
+  letter-spacing: 0;
+}

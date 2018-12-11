@@ -1,0 +1,87 @@
+<!--pages/mine/my-order/my-order.wxml-->
+<import src="./../template/none-page.wxml" />
+<view class='m-my-order'>
+  <block wx:if="{{haveOrder}}">
+    <view class='m-order-nav'>
+      <view bindtap='tabChange' wx:for="{{navList}}" wx:for-index="index" wx:for-item="item" class='m-order-nav-item'>
+        <view data-current='{{index+1}}' class="{{current==index+1?'f-current':''}}">{{item.title}}</view>
+        <view class="m-nav-underline {{current==index+1?'show':''}}"></view>
+        <text wx:if="{{item.haveCount && !count==0}}" class='m-order-count'>{{count}}</text>
+      </view>
+    </view>
+    <view class='m-order-list'>
+      <view wx:if="{{isLoad}}">
+        <loadmore innerText="加载中..." noMore="{{false}}"></loadmore>
+      </view>
+      <none wx:if="{{!orderList.length}}" info="{{noneData.info}}" src="{{noneData.src}}"></none>
+      <view wx:if="{{!isLoad}}" class='m-order-item' wx:for="{{orderList}}" wx:for-index="{{index}}" wx:for-item="item">
+        <view class='m-order-item-top'>
+          <view class='m-order-time'>{{item.time}}</view>
+          <view class='m-order-status'>{{item.statusname}}</view>
+        </view>
+        <view class='m-order-item-center' data-id="{{item.id}}" data-status="{{item.status}}" bindtap='goOrderDetail'>
+          <view class='m-order-item-item' wx:for="{{item.goods.list}}" wx:for-item="item1">
+            <view class='m-order-img-wp'>
+              <image mode='aspectFill' class='m-order-img' src='{{item1.image}}'></image>
+            </view>
+            <view class='m-order-desc'>
+              <view class='m-order-desc-info'>
+                <view class='m-order-name'>{{item1.name}}</view>
+                <view class='m-order-detail'>{{item1.parameter}}</view>
+                <view class='m-order-size'>
+                  <text>{{item1.norms}}</text>
+                </view>
+              </view>
+              <view class='m-order-price'>
+                <text>￥{{item1.price}}</text>
+                <text wx:if='{{item.status==7}}'>退款成功</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='m-order-item-footer'>
+          <view class='m-oder-count'>
+            <text class='f-mgr15'>共{{item.goods.count}}件商品</text>
+            <text class='s-red'>合计：￥{{item.goods.allprice}}</text>
+          </view>
+          <view class='m-order-btns' wx:if="{{item.status==1}}">
+            <view class='m-order-btn' hover-class='button-hover2' data-id='{{item.id}}' bindtap='cancelOrder'>取消订单</view>
+            <view class='m-order-btn' hover-class='button-hover' data-id='{{item.id}}' bindtap='payRight'>立即支付</view>
+          </view>
+          <view class='m-order-btns' wx:if="{{item.status==3}}">
+            <view class='m-order-btn' hover-class='button-hover2' data-id='{{item.id}}' bindtap='lookLogistics'>查看物流</view>
+            <view class='m-order-btn' hover-class='button-hover' data-id='{{item.id}}' bindtap='confirmOrder'>确认收货</view>
+          </view>
+          <view class='m-order-btns' wx:if="{{item.status==6}}">
+            <view class='m-order-btn' hover-class='button-hover2' data-id='{{item.id}}' bindtap='deleteOrder'>删除订单</view>
+            <view class='m-order-btn' hover-class='button-hover' data-id='{{item.id}}' bindtap='buyOnce'>再次购买</view>
+          </view>
+          <view class='m-order-btns' wx:if="{{item.status==4}}">
+            <view class='m-order-btn' hover-class='button-hover2' data-id='{{item.id}}' bindtap='deleteOrder'>删除订单</view>
+            <view class='m-order-btn' hover-class='button-hover2'  data-id='{{item.id}}' bindtap='lookLogistics'>查看物流</view>
+            <view class='m-order-btn' hover-class='button-hover' data-id='{{item.id}}' bindtap='toEvaluation'>评价</view>
+          </view>
+          <view class='m-order-btns' wx:if="{{item.status==5}}">
+            
+              <view class='m-order-btn' hover-class='button-hover2' data-id='{{item.id}}' bindtap='deleteOrder'>删除订单</view>
+              <view class='m-order-btn' hover-class='button-hover' data-id='{{item.id}}' bindtap='lookLogistics'>查看物流</view>
+            
+          </view>
+          <view class='m-order-btns' wx:if="{{item.status==7}}">
+            <view class='m-order-btn' hover-class='button-hover' data-id='{{item.id}}' bindtap='deleteOrder'>删除订单</view>
+            <view class='m-order-btn' style='display:none'></view>
+          </view>
+        </view>
+      </view>
+      <loadmore innerText="正在加载更多订单" id="loadmore1" noMore="{{noMore}}" wx:if="{{loading}}"></loadmore>
+    </view>
+  </block>
+  <block wx:if="{{!haveOrder}}">
+    <!-- <template is="nonePage" data="{{...noneData}}" /> -->
+    <none info="{{noneData.info}}" src="{{noneData.src}}"></none>
+  </block>
+
+  <!--弹窗-->
+  <modal wx:if="{{showModal1}}" cancelText="{{cancelText1}}" confirmText="{{confirmText1}}" title="{{title1}}" bind:confirmFunc="onConfirm1" bind:cancelFunc="onCancel1"></modal>
+  <modal wx:if="{{showModal4}}" cancelText="{{cancelText4}}" confirmText="{{confirmText4}}" title="{{title4}}" bind:confirmFunc="onConfirm4" bind:cancelFunc="onCancel4"></modal>
+</view>

@@ -1,0 +1,49 @@
+<view class='m-customerReviews-list'>
+  <view class='m-customerReviews-user'>
+    <image lazy-load="{{true}}" class='m-customerReviews-image' src="{{reviewsItem.avatar}}" mode='aspectFill'></image>
+    <view class='m-customerReviews-username'>{{reviewsItem.nickname}}</view>
+    <view class="m-customerReviews-scoreItem">
+      <score class="m-customerReviews-scoreItem" value="{{}}" size="30"></score>
+    </view>
+  </view>
+  <!-- 主评开始 -->
+  <view class='m-customerReviews-main'>
+    <view class='m-customerReviews-main-content {{isOPen?"close":"open"}}'>{{reviewsItem.main.content==''?"该用户没有填写评价":reviewsItem.main.content}}</view>
+    <view wx:if="{{isToolong}}" class='m-open-close' bindtap='openContent'>
+      <view class='m-open-locse-text'>{{isOPen?"展开":"收起"}}</view>
+      <view class='arrow-v {{isOPen?"":"down"}}'></view>
+    </view>
+    <view class='m-customerReviews-img-list' wx:if="{{reviewsItem.main.img.length}}">
+      <image lazy-load="{{true}}" wx:for="{{reviewsItem.main.img}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" data-index='{{index}}' class='m-customerReviews-img' bindtap='previewImg' src="{{item}}" mode='aspectFill'></image>
+    </view>
+    <!--商家回复 -->
+    <view wx:if="{{reviewsItem.main.isreply==1}}" class='m-customerReviews-reply'>商家回复：{{reviewsItem.main.reply}}</view>
+  </view>
+  <!--  主评结束 -->
+  <!-- 追评开始 -->
+  <view class='m-customerReviews-review' wx:if="{{reviewsItem.isreview==1}}">
+    <view class='m-customerReviews-review-time'>用户{{reviewsItem.review.time}}追评</view>
+    <view class='m-customerReviews-main-content {{isOPen2?"close":"open"}}'>{{reviewsItem.review.content==''?"该用户没有填写评价":reviewsItem.review.content}}</view>
+    <view wx:if="{{isToolong2}}" class='m-open-close' bindtap='openRviewsContent'>
+      <view class='m-open-locse-text'>{{isOPen2?"展开":"收起"}}</view>
+      <view class='arrow-v {{isOPen2?"":"down"}}'></view>
+    </view>
+    <view class='m-customerReviews-img-list'>
+      <image lazy-load="{{true}}" wx:if="{{reviewsItem.review.img}}" wx:for="{{reviewsItem.review.img}}" wx:for-item="item1" wx:for-index="index1" wx:key="{{index}}" data-index='{{index1}}' bindtap='previewImg2' class='m-customerReviews-img' src="{{item1}}" mode='aspectFill'></image>
+    </view>
+  </view>
+  <!-- 追评结束 -->
+  <view class='m-customerReviews-footer'>
+    <view class='m-customerReviews-time'>{{reviewsItem.time}}</view>
+    <view class='m-customerReviews-btns'>
+      <view class='m-customerReviews-btns-item' bindtap='likeFunc'>
+        <image lazy-load="{{true}}" class='m-customerReviews-img-like' src="{{reviewsItem.islike==1?likeImg:unlikeImg}}" mode='aspectFill'></image>
+        <text class='{{reviewsItem.islike==1?"":"col-959595"}}'>{{reviewsItem.like==0?"点赞":reviewsItem.like}}</text>
+      </view>
+      <view class='m-customerReviews-btns-item' bindtap='shareFunc'>
+        <image lazy-load="{{true}}" class='m-customerReviews-img-share' src="/static/images/-s-share1_btn@3x.png" mode='aspectFill'></image>
+        <text>分享</text>
+      </view>
+    </view>
+  </view>
+</view>

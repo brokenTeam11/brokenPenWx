@@ -1,0 +1,11 @@
+<!--弹窗-->
+<view class="modal-mask">
+<view class="modal-dialog">
+  <image class='modal-image' src='/static/images/img_tips@3x.png' mode='widthFix'></image>
+  <view class="modal-title">{{title}}</view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="confirm">{{cancelText}}</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="cancel">{{confirmText}}</view>
+  </view>
+</view>
+</view>

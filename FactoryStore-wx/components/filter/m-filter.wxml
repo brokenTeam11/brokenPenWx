@@ -1,0 +1,17 @@
+<view class="mask">
+  <view class='m-filter'>
+    <view class='m-filter-title'>
+      筛选
+      <view class='m-close-wp' bindtap='_closeFun'>
+        <view bindtap='_closeFilter' class='m-close' hover-class='current'></view>
+      </view>
+    </view>
+    <scroll-view class='m-fliter-content' scroll-y style="max-height:800rpx">
+      <filter-price price="{{filtersData.price}}" bind:getPrice='getPrice'></filter-price>
+      <filter-kind wx:if="{{filtersData.list.length}}" wx:for="{{filtersData.list}}" bind:getKind="getKind"  kindItem="{{item}}"></filter-kind>
+    </scroll-view>
+    <view class='u-btn-wp'>
+      <button bindtap='_filterFunc' class="u-btn active" hover-class="none">筛选</button>
+    </view>
+  </view>
+</view>

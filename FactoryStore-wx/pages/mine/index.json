@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "Myform": "./../../components/formview/form-view",
+    "loadmore": "./../../components/loadmore/loadmore"
+  }
+}

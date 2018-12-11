@@ -1,0 +1,28 @@
+.m-loading {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-loading text {
+  margin-left: 14rpx;
+  font-size: 27.15rpx;
+  font-weight: 400;
+  color: rgba(97, 97, 97, 1);
+}
+
+.m-nomore {
+  padding: 0 20rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-nomore text {
+  margin: 0 20rpx;
+  font-size: 27.15rpx;
+  font-weight: 400;
+  color: rgba(97, 97, 97, 1);
+}

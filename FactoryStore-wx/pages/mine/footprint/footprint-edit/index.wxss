@@ -1,0 +1,3 @@
+/* pages/mine/footprint/footprint-edit/index.wxss */
+@import "./../../collection/collection-edit/index.wxss";
+

@@ -1,0 +1,85 @@
+/**app.wxss**/
+
+page {
+  background-color: #f5f5f5;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.button-hover {
+  background-color: #2e2f4d !important;
+}
+
+.button-hover2 {
+  background-color: #6a6e94 !important;
+  color: #fff !important;
+}
+
+/* @font-face{
+  font-family: 'PingFang-SC-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('https://kpzuan.com/api/ttf/PingFang_Regular.ttf')
+} */
+
+.fs26 {
+  font-size: 26rpx;
+}
+
+.fs27 {
+  font-size: 27rpx;
+}
+
+.mt18 {
+  margin-top: 18rpx;
+}
+
+@font-face {
+  font-family: 'iconfont'; /* project id 915939 */
+  src: url('//at.alicdn.com/t/font_915939_k96z7wmf21s.eot');
+  src: url('//at.alicdn.com/t/font_915939_k96z7wmf21s.eot?#iefix') format('embedded-opentype'),
+         url('//at.alicdn.com/t/font_915939_k96z7wmf21s.woff') format('woff'),
+         url('//at.alicdn.com/t/font_915939_k96z7wmf21s.ttf') format('truetype'),
+         url('//at.alicdn.com/t/font_915939_k96z7wmf21s.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont";
+  font-size: inherit;
+}
+
+.icon-arrow:before {
+  content: "\e61a";
+}
+
+.icon-new:before {
+  content: '\e603';
+}
+
+.icon-flame:before {
+  content: '\e607';
+}
+
+.icon-directsupply:before {
+  content: '\e605';
+}
+
+.icon-certificates:before {
+  content: '\e604';
+}
+
+.icon-refundable:before {
+  content: '\e606';
+}
+
+.icon-rushtobuy:before{
+  content: '\e608';
+}

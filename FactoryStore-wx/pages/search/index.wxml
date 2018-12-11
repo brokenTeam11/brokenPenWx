@@ -1,0 +1,15 @@
+<!--pages/search/index.wxml-->
+<view class="content">
+  <scroll-view scroll-y class="m-tagList" style='width:auto;'>
+    <view class="tag {{item.id==selId?'z-sel':''}}" wx:for="{{tag}}" wx:key="{{item.id}}" bindtap='clickTag' data-id="{{item.id}}">{{item.name}}</view>
+  </scroll-view>
+  <scroll-view class="m-goodsList" scroll-y scroll-top="{{topDistance}}" bindscrolltolower="loadmore">
+    <image class="topImg" src="{{image}}"></image>
+    <view class="s-title">
+      <view class="border"></view>
+      <text>{{name}}</text>
+      <view class="border"></view>
+    </view>
+    <goodslist havImage="{{false}}" marginTop="10rpx" goodslist="{{goods}}"></goodslist>
+  </scroll-view>
+</view>

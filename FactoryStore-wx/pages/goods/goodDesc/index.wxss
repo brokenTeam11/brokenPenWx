@@ -1,0 +1,7 @@
+/* pages/goods/goodDesc/index.wxss */
+.m-content-wp{
+  background-color: #fff;
+  font-size:27rpx;
+  color: #2E2F4D;
+  padding: 10rpx 20rpx;
+}
